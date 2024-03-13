@@ -1,4 +1,4 @@
-package kr.co.neteacher.eclass.controller.api;
+package kr.co.neteacher.eclass.controller.rest;
 
 import kr.co.neteacher.eclass.dto.Result;
 import lombok.extern.slf4j.Slf4j;

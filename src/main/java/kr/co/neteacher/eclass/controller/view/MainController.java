@@ -1,4 +1,4 @@
-package kr.co.neteacher.eclass.controller.front;
+package kr.co.neteacher.eclass.controller.view;
 
 import kr.co.neteacher.eclass.entity.Teacher;
 import kr.co.neteacher.eclass.repository.TeacherRepository;
