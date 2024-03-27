@@ -1,0 +1,780 @@
+._evalData {
+  .evalPublish-status-wrap {
+    margin-bottom: 44px;
+    @include flexRow;
+    .status-box {
+      flex: 1;
+      min-width: 0;
+      height: 310px;
+      padding: 24px 20px;
+      & + .status-box {
+        margin-left: 24px;
+      }
+      .status-title {
+        margin-bottom: 16px;
+        @include font-title-2;
+        color: $g07;
+        text-align: center;
+      }
+      .status-total-cont {
+        @include flexRow;
+        justify-content: center;
+        padding: 10px 0;
+        .total-graph {
+          position: relative;
+          width: 200px;
+          margin-right: 48px;
+          canvas {
+            width: 200px;
+            height: 200px;
+          }
+          .graph-desc {
+            position: absolute;
+            top: 66px;
+            width: 100%;
+            text-align: center;
+            .desc-percent {
+              @include font-heading-2;
+              color: $g07;
+              strong {
+                @include font-heading-1;
+                color: $black;
+              }
+            }
+            .desc-total-number {
+              @include font-caption-1;
+              color: $g06;
+            }
+          }
+        }
+        .total-detail-wrap {
+          .total-item {
+            @include flexRow;
+            gap: 8px;
+            & + .total-item {
+              margin-top: 20px;
+            }
+            span {
+              @include font-body-2(600);
+              color: $g07;
+              &:last-child {
+                width: 30px;
+              }
+            }
+            &.type-word {
+              .item-percent {
+                color: $green;
+              }
+            }
+            &.type-sentence {
+              .item-percent {
+                color: $yellow;
+              }
+            }
+            &.type-writing {
+              .item-percent {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+      .status-type-cont {
+        .type-detail-wrap {
+          width: 434px;
+          margin: auto;
+          padding: 41px 0;
+          .type-item {
+            @include flexRow;
+            gap: 12px;
+            .percent {
+              width: 44px;
+              font-weight: 600;
+            }
+            .progress-bar {
+              flex: 1;
+              min-width: 0;
+              height: 20px;
+              border-radius: 2px;
+              background-color: $g02;
+              overflow: hidden;
+              .bar {
+                height: 100px;
+                border-radius: 2px;
+              }
+            }
+            .total-number {
+              @include font-caption-1;
+              color: $g05;
+              strong {
+                @include font-body-2(600);
+                color: $g07;
+              }
+            }
+            &.type-sentence {
+              .percent {
+                color: $yellow;
+              }
+              .progress-bar {
+                .bar {
+                  background-color: $yellow;
+                }
+              }
+            }
+            &.type-writing {
+              .percent {
+                color: $blue;
+              }
+              .progress-bar {
+                .bar {
+                  background-color: $blue;
+                }
+              }
+            }
+            &.type-word {
+              .percent {
+                color: $green;
+              }
+              .progress-bar {
+                .bar {
+                  background-color: $green;
+                }
+              }
+            }
+            & + .type-item {
+              margin-top: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .teacher-evalData-wrap {
+    margin-bottom: 44px;
+    @include flexRow(flex-start);
+    gap: 24px;
+    .evalData-box {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      border-radius: 8px;
+      background-color: $white;
+      a {
+        display: block;
+        padding: 24px 16px 24px 24px;
+        .evalData-title-wrap {
+          @include flexRow;
+          justify-content: space-between;
+          .title-text {
+            @include flexRow;
+            @include font-title-2;
+            span {
+              margin-left: 4px;
+              @include font-title-3;
+              color: $secondary;
+            }
+          }
+          i {
+            background-color: $black;
+          }
+        }
+        .evalData-info {
+          position: relative;
+          display: inline-flex;
+          margin-top: 8px;
+          p {
+            @include font-body-2;
+            color: $g07;
+          }
+        }
+      }
+    }
+  }
+  .teacher-textbook-wrap {
+    margin-bottom: 44px;
+    .teacher-textbook-box {
+      padding: 36px 50px 50px;
+      border-radius: 12px;
+      background-color: $g02;
+      .noData {
+        padding: 14px 0 0 0;
+        p {
+          @include font-body-1;
+          color: $g06;
+        }
+      }
+      & + .teacher-textbook-box {
+        margin-top: 30px;
+      }
+      .teacher-textbook-cont {
+        @include flexRow(flex-start);
+        .textbook-detail-wrap {
+          padding: 0 11px;
+          text-align: center;
+          margin-right: 30px;
+          .thumbnail-img {
+            width: 170px;
+            height: 227px;
+            img {
+              height: 100%;
+              object-fit: cover;
+              border-radius: 6px;
+              border: 1px solid $g02;
+            }
+          }
+          .info-wrap {
+            @include flexColumn;
+            justify-content: center;
+            padding-top: 8px;
+            gap: 2px;
+            .info-1 {
+              @include flexRow;
+              justify-content: center;
+              color: $g06;
+              .bar {
+                @include bar;
+              }
+            }
+            .info-2 {
+              font-weight: 600;
+            }
+          }
+          .btn-view-detail {
+            margin-top: 12px;
+            width: 138px;
+            height: 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            @include btn-outline-primary;
+            i {
+              width: 20px;
+              height: 20px;
+              background-color: $primary;
+              margin-left: 4px;
+            }
+          }
+        }
+        .lesson-evalData-wrap {
+          flex: 1;
+          min-width: 0;
+          .lesson-control-btn-wrap {
+            @include flexRow(flex-start);
+            justify-content: center;
+            padding: 10px 0;
+            button {
+              width: 24px;
+              height: 24px;
+              @include btn-circle-white;
+              i {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            .lesson-title {
+              width: 648px;
+              margin: 0 8px;
+              text-align: center;
+              @include font-title-3;
+              font-weight: 600;
+            }
+          }
+          .linkBox-list-wrap {
+            margin-top: 12px;
+            padding: 0;
+            ul {
+              li {
+                .list-item {
+                  padding: 0 24px;
+                }
+                & + li {
+                  margin-top: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .tab-nav-line {
+    margin-bottom: 30px;
+  }
+  .textbook-cont-wrap {
+    .textbook-box {
+      & + .textbook-box {
+        margin-top: 30px;
+      }
+      .revision-year {
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: $g06;
+      }
+      .textbook-list-wrap {
+        @include flexRow;
+        flex-wrap: wrap;
+        gap: 24px;
+        .list-item {
+          position: relative;
+          @include flexRow(flex-start);
+          padding: 24px 16px 24px 24px;
+          border-radius: 8px;
+          background-color: $white;
+          .textbook-thumbnail-img {
+            width: 150px;
+            height: 200px;
+            margin-right: 16px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border: 1px solid $g02;
+              border-radius: 6px;
+            }
+          }
+          .textbook-info-wrap {
+            @include flexColumn;
+            flex: 1;
+            min-width: 0;
+            height: 200px;
+            .info-text {
+              flex: 1;
+              min-height: 0;
+              .title-text {
+                @include font-title-1;
+                @include ell(2);
+              }
+              .title-info {
+                @include flexRow;
+                margin-top: 8px;
+                color: $g06;
+                .bar {
+                  @include bar;
+                }
+              }
+            }
+            .btn-wrap {
+              @include flexRow;
+              margin-top: 16px;
+              button {
+                width: 138px;
+                height: 44px;
+                @include btn-outline-primary;
+                & + button {
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+          &.my-badge {
+            &::after {
+              content: "";
+              position: absolute;
+              top: -8px;
+              right: 16px;
+              width: 38px;
+              height: 48px;
+              background-image: url("../images/image/my_badge.png");
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 1403px) {
+        .textbook-list-wrap {
+          .list-item {
+            width: calc(50% - 12px);
+          }
+        }
+      }
+    }
+  }
+  .unit-cont-wrap {
+    .unit-title-wrap {
+      @include flexRow;
+      align-items: flex-start;
+      margin-bottom: 58px;
+      .textbook-thumbnail-img {
+        width: 102px;
+        height: 136px;
+        border-radius: 6px;
+        border: 1px solid $g02;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+      }
+      .textbook-info-wrap {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        margin-left: 16px;
+        .info-top,
+        .info-btm {
+          .textbook-info {
+            @include flexRow;
+            color: $g06;
+          }
+          .textbook-title {
+            @include font-heading-2;
+            height: 68px;
+          }
+          .bar {
+            @include bar;
+          }
+        }
+        .info-top {
+          margin-bottom: 16px;
+          .textbook-info {
+            margin-bottom: 8px;
+            span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .unit-box-wrap {
+      .selectBox {
+        min-width: 160px;
+        width: 160px;
+        margin-bottom: 18px;
+        & + .linkBox-list-wrap {
+          margin-top: 0;
+          padding: 0;
+          .list-item {
+            padding: 0 24px;
+            a {
+              padding: 13px 0;
+              .learningType-badge {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+        }
+      }
+      .box-item-wrap {
+        .box-item {
+          padding-bottom: 12px;
+          & + .box-item {
+            margin-top: 30px;
+          }
+          .box-info {
+            @include flexRow;
+            padding: 21px 26px;
+            font-weight: 600;
+            .bar {
+              @include bar;
+            }
+            .total-count {
+              em {
+                margin-left: 4px;
+                color: $primary;
+              }
+            }
+          }
+          .linkBox-list-wrap {
+            margin-top: 0;
+            padding: 0;
+            ul {
+              li {
+                .list-item {
+                  border-radius: 0;
+                  padding: 0 24px;
+                  .info-wrap {
+                    .tooltip-guide {
+                      top: calc(100% - 15px);
+                      left: 49px;
+                      margin: 0;
+                    }
+                  }
+                  .btn-item-wrap {
+                    .btn-item {
+                      .tooltip-guide {
+                        top: 50%;
+                        left: auto;
+                        right: calc(100% + 10px);
+                        margin: 0;
+                        transform: translateY(-50%);
+                      }
+                    }
+                  }
+                }
+                & + li {
+                  margin-top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .teacherMade-cont-wrap {
+    padding: 36px;
+    .eval-cont-area {
+      margin-bottom: 30px;
+      .title {
+        margin-bottom: 16px;
+        @include font-body-1(600);
+      }
+      p {
+        min-height: 60px;
+        @include font-body-2;
+      }
+    }
+  }
+  .card-item-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 368px);
+    justify-content: center;
+    gap: 16px;
+    .card-item {
+      perspective: 1100px;
+      .card-flip {
+        display: flex;
+        transition: transform 0.4s;
+        transform-style: preserve-3d;
+        .card-front,
+        .card-back {
+          display: flex;
+          align-items: center;
+          flex: none;
+          backface-visibility: hidden;
+        }
+        .card-back {
+          transform: rotateX(-180deg) translate(-100%, 0);
+        }
+      }
+      .card {
+        position: relative;
+        @include flexRow;
+        justify-content: center;
+        width: 368px;
+        min-height: 172px;
+        height: 100%;
+        padding: 11px;
+        border-radius: 8px;
+        border: 1px solid $g02;
+        background-color: $white;
+        cursor: pointer;
+        button {
+          position: absolute;
+          top: 12px;
+        }
+        .btn-speaker {
+          left: 12px;
+          i {
+            @include btn-secondary;
+          }
+          .icon-pause {
+            display: none;
+          }
+          &.on {
+            .icon-pause {
+              display: block;
+            }
+            .icon-sound {
+              display: none;
+            }
+          }
+        }
+        .btn-view-image {
+          right: 12px;
+          i {
+            background-color: $g06;
+          }
+        }
+        .card-text {
+          @include font-title-2;
+          color: $g07;
+          text-align: center;
+        }
+        &.card-meaning {
+          position: relative;
+          height: 100%;
+          padding: 11px 49px;
+          background-image: url("../images/image/meaning_view_bg.png");
+          background-size: cover;
+          border-color: #d8e0f1;
+          z-index: 1;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            z-index: -1;
+          }
+        }
+      }
+      &.on .card-flip {
+        transform: rotateX(180deg);
+      }
+    }
+    &.type-sentence {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      .card-item {
+        width: 100%;
+        perspective: 2000px;
+        .card-flip {
+          min-height: 96px;
+          .card-front,
+          .card-back {
+            width: 100%;
+          }
+        }
+        .card {
+          width: 100%;
+          min-height: 96px;
+          padding: 14px 30px;
+          border: initial;
+          button {
+            position: initial;
+          }
+          .card-text {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            @include font-body-1;
+            margin: 0 12px;
+            text-align: left;
+            font-weight: 400;
+          }
+          &.card-meaning {
+            background-image: url("../images/image/meaning_view_long_bg.png");
+            &::before {
+              border-radius: 6px;
+            }
+          }
+        }
+      }
+    }
+    &.type-all {
+      grid-template-columns: repeat(auto-fill, 752px);
+      .card-item {
+        .card-flip {
+          // @include flexRow;
+          display: flex;
+          gap: 16px;
+          width: auto !important;
+          transform: none !important;
+          .card-back {
+            position: relative;
+            transform: none;
+          }
+          .card {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  .writing-eval-wrap {
+    padding: 36px;
+    .eval-area {
+      @include flexRow;
+      align-items: flex-start;
+      .textbook-img {
+        width: 436px;
+        margin-right: 24px;
+        cursor: pointer;
+        img {
+          width: 100%;
+        }
+      }
+      .eval-item-wrap {
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        .eval-item {
+          & + .eval-item {
+            margin-top: 36px;
+          }
+          .title {
+            margin-bottom: 16px;
+            font-weight: 600;
+          }
+          .eval-subject-wrap {
+            background-color: $g01;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            .text-wrap {
+              .text-eng {
+                @include font-title-2;
+                margin-bottom: 4px;
+              }
+              .text-kor {
+                color: $g07;
+              }
+            }
+            .eval-purpose {
+              margin-top: 16px;
+              padding: 12px 16px 16px;
+              border-radius: 8px;
+              background-color: $white;
+              @include font-body-2;
+              color: $g07;
+              .title {
+                margin-bottom: 0;
+                font-weight: 600;
+              }
+              p {
+                margin-top: 8px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .unit-synthesis-wrap {
+    padding: 20px;
+    .eval-standard {
+      .eval-table-wrap {
+        .table-wrap {
+          table {
+            tbody {
+              tr {
+                &.tr-title {
+                  td {
+                    height: 36px;
+                    &:first-child {
+                      padding-left: 24px;
+                    }
+                  }
+                }
+                &.total-score {
+                  td {
+                    height: 36px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .eval-standard {
+    .title {
+      font-weight: 600;
+    }
+    .title-desc {
+      margin-top: 8px;
+      @include font-caption-1;
+      color: $status-error;
+      & + .eval-table-wrap {
+        margin-top: 0;
+      }
+    }
+  }
+}

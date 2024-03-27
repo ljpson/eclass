@@ -1,0 +1,2036 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @include font-body-1;
+  color: $black;
+  font-family: "Pretendard", sans-serif;
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+#app {
+  @include flexRow(initial);
+  height: 100%;
+  background-color: $surface-bg;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  color: $black;
+  font-weight: 600;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+// box-bg
+.box-bg {
+  border-radius: 8px;
+  background-color: $white;
+}
+
+// eval-name-wrap
+.eval-name-wrap {
+  width: 100%;
+  .eval-name {
+    @include flexRow;
+    .learningType-badge {
+      flex: none;
+      margin-right: 8px;
+    }
+    .name-wrap {
+      flex: 1;
+      min-width: 0;
+      .name {
+        @include font-title-2;
+        @include ell(2);
+      }
+      .evel-etc-info {
+        margin-top: 4px;
+        padding-left: 0;
+        @include font-body-2;
+      }
+    }
+  }
+  .evel-etc-info {
+    margin-top: 6px;
+    padding-left: 38px;
+    @include font-body-1;
+    .info-item {
+      @include flexRow;
+      color: $g06;
+      .bar {
+        @include bar;
+      }
+      & + .info-item {
+        margin-top: 6px;
+      }
+      span {
+        & + span {
+          margin-left: 4px;
+        }
+        &.color-blue {
+          color: $status-ongoing;
+        }
+        &.overdue-date {
+          span {
+            color: $status-error;
+          }
+          em {
+            margin-left: 4px;
+            font-weight: 600;
+            color: $status-error;
+          }
+        }
+      }
+    }
+  }
+}
+
+// main-title-wrap
+.main-title-wrap {
+  @include flexRow(flex-start);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 44px;
+  .title-left {
+    .main-title {
+      @include flexRow;
+      position: relative;
+      h2 {
+        padding: 2px 0;
+        @include font-heading-2;
+      }
+      .learningType-badge {
+        margin-right: 8px;
+      }
+      .class-badge {
+        margin-right: 8px;
+      }
+      .icon-btn-wrap {
+        @include flexRow;
+        flex: none;
+        gap: 8px;
+        margin-left: 16px;
+        .btn-item {
+          position: relative;
+          .icon-btn {
+            width: 30px;
+            height: 30px;
+            @include btn-circle-white;
+            i {
+              width: 20px;
+              height: 20px;
+            }
+            &:hover {
+              & + .tooltip {
+                display: block;
+              }
+            }
+          }
+          .btn-dropdown {
+            .dropdown-list {
+              top: 32px;
+              left: -4px;
+              right: auto;
+              width: 130px;
+            }
+            &.active {
+              .icon-btn {
+                background-color: $black-alpha-10;
+              }
+            }
+          }
+          .tooltip {
+            bottom: 42px;
+          }
+          .tooltip-guide {
+            left: -12px;
+            margin: 0;
+          }
+        }
+      }
+      .tooltip-guide {
+        top: 46px;
+        left: 0;
+        margin: 0;
+      }
+    }
+    .title-info {
+      margin-top: 6px;
+      padding-left: 38px;
+      .title-info-row {
+        @include flexRow;
+        color: $g07;
+        .badge {
+          margin-right: 10px;
+          padding: 0 6px;
+          border-radius: 4px;
+          background-color: #7f93ba;
+          color: $white;
+          @include font-body-2(600);
+        }
+        span {
+          & + span {
+            margin-left: 4px;
+          }
+          &.color-blue {
+            color: $status-ongoing;
+          }
+          &.overdue-date {
+            span {
+              color: $status-error;
+            }
+            em {
+              margin-left: 4px;
+              font-weight: 600;
+              color: $status-error;
+            }
+          }
+        }
+        .bar {
+          @include bar;
+        }
+        & + .title-info-row {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+  .title-right {
+    position: relative;
+    flex: none;
+    margin-left: auto;
+    .btn-wrap {
+      @include flexRow;
+      gap: 8px;
+      .btn-item {
+        position: relative;
+        > button,
+        .btn-dropdown > button {
+          min-width: 138px;
+          height: 44px;
+          padding: 0 11px;
+          &.btn-outline {
+            @include btn-outline-primary;
+          }
+          &.btn-fill {
+            @include btn-primary;
+          }
+          &.btn-fill2 {
+            @include btn-secondary;
+          }
+          i {
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+          }
+        }
+        .tooltip {
+          top: calc(100% + 10px);
+          &::after {
+            top: -6px;
+            bottom: auto;
+            transform: rotate(180deg);
+          }
+        }
+        &:last-child {
+          .tooltip-guide {
+            left: auto;
+            right: 0;
+            margin: 0;
+          }
+          .tooltip {
+            left: auto;
+            right: 0;
+            transform: none;
+            &::after {
+              left: auto;
+              right: 24px;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    .before-eval {
+      color: $g07;
+    }
+    .icon-btn {
+      position: absolute;
+      top: 7px;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      @include btn-circle-white;
+      i {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  &.type-evalData {
+    align-items: center;
+    margin-bottom: 30px;
+    &.mb-18 {
+      margin-bottom: 18px;
+    }
+  }
+}
+
+// check-search-wrap
+.check-search-wrap {
+  @include flexRow;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 0;
+  padding: 14px 16px;
+  .check-search-item {
+    @include flexRow;
+    flex-wrap: wrap;
+    gap: 12px 0;
+  }
+  .checkbox {
+    margin-right: 12px;
+  }
+  .check-count {
+    position: relative;
+    margin-right: 16px;
+    @include font-body-2(600);
+    em {
+      color: $primary;
+    }
+  }
+  .total-count {
+    margin-right: 16px;
+    @include font-body-2(600);
+    em {
+      margin-left: 4px;
+      color: $primary;
+    }
+  }
+  .btn-wrap {
+    @include flexRow;
+    margin-right: 16px;
+    button {
+      height: 36px;
+      padding: 0 13px;
+      & + button {
+        margin-left: 16px;
+      }
+    }
+    .btn-read-processing {
+      @include btn-outline-primary;
+    }
+    .btn-delete {
+      @include btn-outline-error;
+      i {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+        background-color: $status-error;
+      }
+    }
+    .btn-results-export {
+      @include btn-outline-primary;
+    }
+  }
+  .input-text {
+    width: 320px;
+    margin-right: 16px;
+  }
+  &.type-table-top {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+  &.type-textbook {
+    padding: 0;
+    margin-bottom: 30px;
+    .selectBox {
+      width: 249px;
+    }
+    .input-text {
+      width: 480px;
+      margin-left: 10px;
+    }
+  }
+}
+
+// learningType-badge
+.learningType-badge {
+  @include flexRow;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: 24px;
+  &::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 80%;
+  }
+  &.type-word {
+    background-color: $green;
+    &::before {
+      @include svg(word);
+    }
+  }
+  &.type-sentence {
+    background-color: $yellow;
+    &::before {
+      @include svg(sentence);
+    }
+  }
+  &.type-writing {
+    background-color: $blue;
+    &::before {
+      @include svg(pencil);
+    }
+  }
+  &.type-submit {
+    background-color: $orange;
+    &::before {
+      @include svg(plane);
+    }
+  }
+  &.type-unit {
+    background-color: $pink;
+    &::before {
+      @include svg(unit);
+    }
+  }
+}
+
+// class-badge
+.class-badge {
+  @include flexRow;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: 24px;
+  &::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 80%;
+    @include svg(hat);
+  }
+  &.type-1 {
+    background-color: $yellow;
+  }
+  &.type-2 {
+    background-color: $green;
+  }
+  &.type-3 {
+    background-color: $pruple;
+  }
+  &.type-4 {
+    background-color: $pink;
+  }
+  &.type-5 {
+    background-color: $blue;
+  }
+  &.type-add {
+    &::before {
+      content: none;
+    }
+    background-image: url("../images/icon/select_classProfile_add.svg");
+    background-size: 100%;
+  }
+  &.type-custom {
+    &::before {
+      content: none;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// btn-dropdown
+.btn-dropdown {
+  position: relative;
+  &.active {
+    .dropdown-list {
+      display: block;
+    }
+  }
+  &.open-top {
+    .dropdown-list {
+      top: auto;
+      bottom: calc(100% + 2px);
+    }
+  }
+}
+
+// noData
+.noData {
+  @include flexColumn;
+  justify-content: center;
+  padding-bottom: 60px;
+  .img {
+    width: 160px;
+    height: 100px;
+    margin: 0 auto;
+    &.no-result {
+      background-image: url("../images/image/no_result.svg");
+    }
+    &.no-data {
+      background-image: url("../images/image/no_data.svg");
+    }
+    & + p {
+      margin-top: 20px;
+    }
+  }
+  p {
+    text-align: center;
+    @include font-body-2;
+    color: $g05;
+  }
+  .btn-wrap {
+    @include flexRow;
+    justify-content: center;
+    margin-top: 20px;
+    button {
+      width: 138px;
+      height: 44px;
+      i {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+      }
+      &.btn-fill {
+        @include btn-primary;
+      }
+    }
+  }
+}
+
+// setting-box
+.setting-box {
+  @include flexColumn;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  .box-header-wrap {
+    & + .box-top-wrap {
+      padding-top: 0;
+      > .s-scroll {
+        padding-top: 36px;
+      }
+    }
+    .selectBox-desc {
+      padding: 36px 36px 16px 36px;
+      border-bottom: 1px solid $g03;
+      .selectBox {
+        width: 240px;
+      }
+      p {
+        margin-top: 12px;
+        padding: 8px 16px;
+        background-color: #dce0f1;
+        border-radius: 6px;
+        @include font-body-2;
+      }
+    }
+    .tab-nav-line {
+      padding-top: 20px;
+    }
+  }
+  .box-top-wrap {
+    flex: 1;
+    min-height: 0;
+    padding: 36px 36px;
+    overflow: hidden;
+    > .s-scroll {
+      margin: 0 -36px;
+      padding: 0 36px;
+    }
+  }
+  .box-footer-wrap {
+    @include flexRow;
+    padding: 8px 36px 36px;
+    .btn-wrap {
+      @include flexRow;
+      justify-content: space-between;
+      width: 100%;
+      button {
+        width: 138px;
+        height: 42px;
+        &.btn-fill {
+          @include btn-primary;
+          margin-left: auto;
+        }
+        &.btn-outline {
+          @include btn-outline-primary;
+        }
+        &.btn-outline2 {
+          @include btn-outline-error;
+        }
+      }
+    }
+  }
+}
+
+// essential-text
+.essential-text {
+  margin-bottom: 10px;
+  padding: 1px 0;
+  @include font-caption-1;
+  color: $g07;
+  text-align: right;
+  span {
+    margin-right: 2px;
+    color: $primary;
+  }
+}
+
+// input row
+.input-row-wrap {
+  .item-row {
+    & + .item-row {
+      margin-top: 36px;
+    }
+    .input-count {
+      @include flexRow;
+      @include font-caption-1;
+      b {
+        font-weight: 600;
+        color: $secondary;
+      }
+    }
+    .row-title-wrap {
+      @include flexRow;
+      position: relative;
+      .row-title {
+        .title {
+          @include font-body-1(600);
+          &.essential {
+            &::after {
+              content: "*";
+              margin-left: 4px;
+              color: $primary;
+            }
+          }
+        }
+        .sub-title {
+          margin-top: 2px;
+          @include font-caption-1;
+          color: $g07;
+        }
+      }
+      .input-count {
+        margin-left: auto;
+      }
+    }
+    .row-cont-wrap {
+      margin-top: 6px;
+      .input-wrap {
+        position: relative;
+        .input-count {
+          position: absolute;
+          top: -24px;
+          right: 0;
+        }
+      }
+      .row-text {
+        @include font-body-2;
+      }
+    }
+  }
+  .row-bar {
+    height: 1px;
+    margin: 30px 0;
+    background-color: $g03;
+  }
+  .input-row-title-wrap {
+    position: relative;
+    margin-bottom: 24px;
+    padding: 7px 0;
+    .title {
+      @include font-body-1(600);
+    }
+    .essential-text {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+  .select-classProfile-wrap {
+    @include flexRow;
+    gap: 8px;
+    padding-top: 8px;
+    .profile-item {
+      position: relative;
+      cursor: pointer;
+      .class-badge {
+        width: 40px;
+        height: 40px;
+      }
+      .btn-dropdown {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 20px;
+        button {
+          width: 20px;
+          height: 20px;
+          @include btn-primary;
+          border-radius: 50%;
+          line-height: 1;
+          i {
+            width: 15px;
+            height: 15px;
+          }
+        }
+        .dropdown-list {
+          top: 24px;
+          left: -24px;
+          right: auto;
+          width: 138px;
+        }
+      }
+      &.on {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("../images/image/select_classProfile_target.svg");
+        }
+      }
+    }
+  }
+  .teacher-badge-list {
+    @include flexRow;
+    flex-wrap: wrap;
+    gap: 8px;
+    .list-item {
+      @include flexRow;
+      padding: 8px 14px;
+      border-radius: 22px;
+      background-color: #cddaf4;
+      @include font-body-2;
+      .badge {
+        flex: none;
+        margin-right: 6px;
+        padding: 0 6px;
+        border-radius: 4px;
+        @include font-body-2(600);
+        background-color: $g05;
+        color: $g06;
+        &-share {
+          background-color: #6479a2;
+          color: $white;
+        }
+      }
+      .btn-delete {
+        flex: none;
+        margin-left: 4px;
+        width: 20px;
+        height: 20px;
+        @include svg(close, $black);
+      }
+    }
+  }
+  .btn-teacher-edit {
+    margin-left: auto;
+    i {
+      width: 22px;
+      height: 22px;
+      margin-right: 2px;
+      background-color: $black;
+    }
+  }
+  .setting-textbook-wrap {
+    padding-top: 2px;
+    .type-option {
+      ul {
+        li {
+          @include flexRow;
+          .textbook-name {
+            flex: 1;
+            min-width: 0;
+            .radio {
+              span {
+                @include font-body-2;
+              }
+            }
+          }
+          .textbook-info {
+            flex: none;
+            @include flexRow;
+            @include font-body-2;
+            color: $g06;
+            .bar {
+              @include bar;
+              margin: 0 6px;
+              background-color: $g06;
+            }
+          }
+          & + li {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+    .type-self {
+      margin-top: 8px;
+      .selectBox-wrap {
+        @include flexRow;
+        gap: 6px;
+        margin-bottom: 6px;
+        .selectBox {
+          flex: 1;
+          min-width: 0;
+        }
+      }
+    }
+  }
+  .date-duration-setting-wrap {
+    .setting-item {
+      & + .setting-item {
+        margin-top: 8px;
+      }
+      @include flexRow;
+      gap: 8px;
+      .switch {
+        span {
+          width: 40px;
+        }
+      }
+      .date-wrap {
+        width: 150px;
+      }
+      .time-wrap {
+        @include flexRow;
+        .input-text {
+          width: 47px;
+          input {
+            padding: 7px 11px;
+            text-align: center;
+          }
+        }
+        .time-dot {
+          margin: 0 8px;
+        }
+      }
+      .setting-complete {
+        color: $primary;
+        @include font-body-2;
+      }
+    }
+  }
+  .detail-setting-item {
+    @include flexRow(flex-start);
+    @include font-body-2;
+    margin-top: 16px;
+    .setting-title {
+      @include flexRow;
+      width: 74px;
+      height: 36px;
+      font-weight: 600;
+    }
+    .detail-cont {
+      .selectBox {
+        width: 240px;
+      }
+      .input-stepper {
+        width: 240px;
+      }
+      .checkbox {
+        padding: 6px 0;
+      }
+      .questionNumber-info {
+        @include flexRow;
+        padding: 8px 0;
+        .bar {
+          @include bar;
+        }
+      }
+      .detail-cont-item {
+        @include flexRow(flex-start);
+        & + .detail-cont-item {
+          margin-top: 8px;
+        }
+        .item-title {
+          @include flexRow;
+          width: 100px;
+          height: 36px;
+        }
+        .item-cont {
+          .input-wrap {
+            .input-stepper {
+              flex: none;
+            }
+          }
+          .questionNumber-guide-text {
+            margin-top: 8px;
+            padding: 8px 0;
+            @include font-caption-1;
+            color: $g06;
+          }
+        }
+        .division-setting {
+          padding-bottom: 24px;
+          .division-item-wrap {
+            padding-left: 100px;
+            .division-item {
+              @include flexRow;
+              .division-title {
+                width: 74px;
+                color: $g06;
+                font-weight: 600;
+              }
+              .input-text {
+                width: 70px;
+              }
+              .bar {
+                @include bar;
+                height: 16px;
+              }
+              & + .division-item {
+                margin-top: 8px;
+              }
+            }
+            .input-error-text {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+    & + .detail-setting-item {
+      margin-top: 8px;
+    }
+  }
+}
+
+// 파일 첨부 타이틀
+.preview-file-title-wrap {
+  position: relative;
+  @include flexRow;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  .total-count {
+    @include font-body-2;
+    font-weight: 600;
+    em {
+      margin-left: 4px;
+      color: $primary;
+    }
+  }
+  .bar {
+    @include bar;
+  }
+  .total-file-size {
+    @include font-body-2;
+    font-weight: 600;
+    color: $g06;
+  }
+  .btn-item {
+    position: absolute;
+    right: 0;
+    .btn-total-file {
+      @include flexRow;
+      font-weight: 400;
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-right: 2px;
+      }
+      &.total-download {
+        &::before {
+          @include svg(download, $black);
+        }
+      }
+      &.total-upload {
+        &::before {
+          @include svg(upload, $black);
+        }
+      }
+    }
+    .dropdown-list {
+      top: calc(100% + 9px);
+      width: 138px;
+    }
+  }
+}
+// 파일 첨부 내용
+.preview-file-cont-wrap {
+  @include flexRow(initial);
+  flex-wrap: wrap;
+  gap: 16px;
+  .file-item {
+    .file-download {
+      display: block;
+      width: 216px;
+      padding: 12px;
+      border-radius: 8px;
+      background-color: $g01;
+      .file-thumbnail-img {
+        height: 108px;
+        margin-bottom: 12px;
+        border-radius: 4px;
+        background-size: 192px 108px;
+        background-position: center;
+        background-color: #d0d3ee;
+        &.file-type-text {
+          background-image: url("../images/image/file_type_text.png");
+        }
+        &.file-type-img {
+          background-image: url("../images/image/file_type_img.png");
+        }
+        &.file-type-link {
+          background-image: url("../images/image/file_type_link.png");
+        }
+      }
+      .file-info {
+        text-align: left;
+        .file-name {
+          @include flexRow;
+          i {
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+            background-color: $g07;
+          }
+          span {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            color: $g07;
+            @include ell;
+          }
+        }
+        .file-info-btm {
+          height: 20px;
+          @include flexRow;
+          .file-size {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+            @include font-body-2;
+            font-weight: 600;
+            color: $g07;
+          }
+          .btn-file-delete {
+            width: 20px;
+            height: 20px;
+            @include svg(trash, $black);
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+// 파일 첨부 업로드
+.preview-file-upload-wrap {
+  @include flexRow;
+  height: 100%;
+  min-height: 186px;
+  border: 1px solid $g02;
+  border-radius: 8px;
+  .upload-inner {
+    margin: auto;
+    text-align: center;
+    p {
+      color: $g06;
+    }
+    .btn-dropdown {
+      display: inline-block;
+      margin-top: 12px;
+      vertical-align: top;
+      .btn-upload {
+        width: 138px;
+        height: 36px;
+        @include btn-outline-primary;
+        i {
+          width: 20px;
+          height: 20px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}
+
+// title-check-box-wrap
+.title-check-box-wrap {
+  @include flexRow(flex-start);
+  // gap: 12px;
+  .list-box {
+    @include flexColumn;
+    flex: 1;
+    min-width: 0;
+    border: 1px solid $g02;
+    border-radius: 8px;
+    overflow: hidden;
+    .list-title-wrap {
+      @include flexRow;
+      justify-content: space-between;
+      padding: 7px 8px;
+      background-color: $g02;
+      .title {
+        color: $g07;
+        @include font-body-2(600);
+        span {
+          @include font-body-2;
+          font-weight: 600;
+          color: $primary;
+          margin-left: 4px;
+        }
+      }
+      .class-count {
+        color: $primary;
+        @include font-caption-1(600);
+      }
+    }
+    .list-cont {
+      flex: 1;
+      min-height: 0;
+      .list-type-class {
+        height: 100%;
+        ul {
+          padding: 12px 12px 16px;
+          li {
+            @include flexRow;
+            &.li-selectAll {
+              padding-bottom: 12px;
+              border-bottom: 1px solid $g02;
+            }
+            &.li-switch {
+              padding-bottom: 12px;
+              border-bottom: 1px solid $g02;
+            }
+            & + li {
+              margin-top: 12px;
+            }
+            .title {
+              @include font-body-2;
+              flex: 1;
+              min-width: 0;
+            }
+            .btn-add-class,
+            .btn-delete-class {
+              width: 56px;
+              height: 36px;
+              margin-left: 4px;
+            }
+            .btn-add-class {
+              @include btn-secondary;
+            }
+            .btn-delete-class {
+              @include btn-outline-error;
+            }
+            .publish-history-date {
+              flex: none;
+              margin-left: auto;
+              @include font-caption-1;
+              color: $g06;
+              & + .btn-move-rightBox {
+                margin-left: 4px;
+              }
+            }
+            .btn-move-rightBox {
+              flex: none;
+              margin-left: auto;
+              @include font-caption-1(600);
+              color: $primary;
+              i {
+                width: 18px;
+                height: 18px;
+                background-color: $black;
+              }
+            }
+          }
+        }
+        .before-select {
+          @include flexRow;
+          justify-content: center;
+          min-height: 212px;
+          height: 100%;
+          p {
+            @include font-body-2;
+            color: $g05;
+          }
+        }
+      }
+      .list-type-textbook {
+        padding: 12px 12px 16px;
+        .list-textbook {
+          & + .list-textbook {
+            margin-top: 12px;
+          }
+          .revision-year {
+            @include font-caption-1(600);
+            color: $g06;
+            margin-bottom: 12px;
+          }
+        }
+        ul {
+          li {
+            .add-item {
+              .switch {
+                input {
+                  & + label {
+                    position: relative;
+                    width: 100%;
+                    padding: 6px 8px;
+                    border-radius: 4px;
+                    i {
+                      position: absolute;
+                      right: 8px;
+                    }
+                    span {
+                      margin-left: 0;
+                    }
+                  }
+                  &:checked {
+                    & + label {
+                      background-color: #e7edf3;
+                      &::before {
+                        content: "추가됨";
+                        position: absolute;
+                        right: 40px;
+                        @include font-body-2;
+                        color: $primary;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .added-item {
+              .title-wrap {
+                @include flexRow;
+                .title {
+                  flex: 1;
+                  width: 100%;
+                  min-width: 0;
+                  @include font-body-2;
+                }
+                .drag-point {
+                  margin-left: 4px;
+                  .point {
+                    width: 20px;
+                    height: 20px;
+                    @include svg(change, $black);
+                    cursor: pointer;
+                  }
+                }
+              }
+              .added-info {
+                @include font-caption-1;
+                color: $g06;
+              }
+            }
+            & + li {
+              margin-top: 12px;
+            }
+          }
+        }
+      }
+    }
+    & + .list-box {
+      margin-left: 12px;
+    }
+  }
+  .list-box-arrow {
+    @include flexColumn;
+    justify-content: center;
+    height: 100%;
+    margin: 0 8px;
+    .arrow {
+      width: 24px;
+      height: 24px;
+      @include svg(arrow_right, $g05);
+    }
+  }
+}
+
+// 학급자료, 평가 등 리스트 공통
+.linkBox-list-wrap {
+  margin-top: 20px;
+  padding: 0 16px;
+  ul {
+    li {
+      @include flexRow;
+      .checkbox {
+        margin-right: 12px;
+      }
+      .list-item {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        min-width: 0;
+        @include flexRow;
+        padding: 0 30px;
+        gap: 12px;
+        .info-wrap {
+          position: relative;
+          flex: 1;
+          width: 100%;
+          min-width: 0;
+          a {
+            @include flexRow;
+            min-height: 96px;
+            // padding: 23px 0;
+            .learningType-badge {
+              width: 40px;
+              height: 40px;
+              margin-right: 12px;
+            }
+          }
+          .text-wrap {
+            flex: 1;
+            min-width: 0;
+            .text {
+              @include font-title-2;
+              @include ell(2);
+            }
+            .etc {
+              @include flexRow;
+              @include font-body-2;
+              color: $g06;
+              margin-top: 4px;
+              strong {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        .status {
+          flex: none;
+          width: 100px;
+          span {
+            display: block;
+            text-align: center;
+            @include font-body-2;
+            font-weight: 600;
+          }
+          &-closed {
+            color: $status-closed;
+          }
+          &-ongoin {
+            color: $status-ongoing;
+          }
+          &-standby {
+            color: $status-standby;
+          }
+          &-overdue {
+            color: $status-error;
+          }
+        }
+        .drag-point {
+          position: relative;
+          flex: none;
+          .point {
+            width: 24px;
+            height: 24px;
+            @include svg(change, $black);
+            cursor: pointer;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+          .tooltip {
+            left: auto;
+            right: -8px;
+            bottom: 34px;
+            transform: none;
+            &::after {
+              left: auto;
+              right: 16px;
+              margin: 0;
+            }
+          }
+        }
+        .btn-item-wrap {
+          @include flexRow;
+          flex: none;
+          .btn-item {
+            position: relative;
+            button {
+              width: 138px;
+              height: 40px;
+              i {
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
+              }
+              &.btn-fill {
+                @include btn-primary;
+              }
+              &.btn-outline {
+                @include btn-outline-primary;
+              }
+              &.btn-fill2 {
+                @include btn-secondary;
+              }
+              &.btn-publish {
+                @include btn-primary;
+                width: 80px;
+              }
+            }
+            .dropdown-list {
+              ul {
+                li {
+                  & + li {
+                    margin-top: 0;
+                  }
+                }
+              }
+            }
+            & + .btn-item {
+              margin-left: 8px;
+            }
+          }
+        }
+        .before-eval-begin {
+          width: 138px;
+          text-align: center;
+          @include font-body-2;
+          color: $g06;
+          font-weight: 600;
+        }
+        &.readed {
+          background-color: $surface-read-finished;
+        }
+        &.highlight {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 16px;
+            height: 16px;
+            background-image: url("../images/image/list_item_highlight.png");
+          }
+        }
+        &.disabled {
+          .info-wrap {
+            a {
+              pointer-events: none;
+              cursor: default;
+              .name-wrap {
+                .name {
+                  color: $g04;
+                }
+                .evel-etc-info {
+                  .info-item {
+                    color: $g04;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      & + li {
+        margin-top: 16px;
+      }
+      .list-item {
+        &:hover {
+          background-color: $black-alpha-10;
+        }
+      }
+    }
+  }
+}
+
+// 교과서 설정
+.tab-textbook {
+  position: relative;
+  .selectBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .textbook-select-wrap {
+    position: relative;
+    margin-top: 30px;
+    padding-bottom: 52px;
+    .textbook-item-wrap {
+      @include flexRow(flex-start);
+      justify-content: space-between;
+      .textbook-item {
+        width: 114px;
+        .checkbox {
+          input {
+            & + label {
+              position: relative;
+              i {
+                display: none;
+                position: absolute;
+                right: 8px;
+                bottom: 8px;
+                width: 30px;
+                height: 30px;
+                background-image: url("../images/icon/feedback_sticker_select.svg");
+                z-index: 2;
+              }
+              .textbook-img {
+                position: relative;
+                width: 100%;
+                height: 152px;
+                border-radius: 6px;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  border-radius: 6px;
+                }
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: 1px solid $g02;
+                  box-sizing: border-box;
+                  border-radius: 6px;
+                }
+              }
+              & + .textbook-info {
+                margin-top: 8px;
+                text-align: center;
+              }
+            }
+            &:checked {
+              + label {
+                i {
+                  display: block;
+                }
+                .textbook-img {
+                  &::before {
+                    border: 3px solid $primary;
+                  }
+                }
+                & + .textbook-info {
+                  font-weight: 600;
+                  color: $black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .textbook-control-btn-wrap {
+      button {
+        position: absolute;
+        top: 61px;
+        width: 30px;
+        height: 30px;
+        @include btn-circle-white;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.16);
+        &:hover {
+          background-color: #e6e6e6;
+        }
+        &.btn-control-left {
+          left: -15px;
+        }
+        &.btn-control-right {
+          right: -15px;
+        }
+        i {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+// 학급 개설
+.create-class {
+  flex: 1;
+  min-height: 0;
+  padding-bottom: 22px;
+  .title-check-box-wrap {
+    height: 100%;
+    .list-box {
+      height: 100%;
+      ul {
+        li {
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+}
+
+// sticker
+.feedback-sticker {
+  &-no {
+    background-image: url("../images/image/feedback_sticker_no.png");
+  }
+  &-1 {
+    background-image: url("../images/image/feedback_sticker_1.png");
+  }
+  &-2 {
+    background-image: url("../images/image/feedback_sticker_2.png");
+  }
+  &-3 {
+    background-image: url("../images/image/feedback_sticker_3.png");
+  }
+  &-4 {
+    background-image: url("../images/image/feedback_sticker_4.png");
+  }
+  &-5 {
+    background-image: url("../images/image/feedback_sticker_5.png");
+  }
+  &-6 {
+    background-image: url("../images/image/feedback_sticker_6.png");
+  }
+}
+
+// feedback-box
+.feedback-box {
+  margin: 6px 15px 0;
+  padding: 20px 20px 24px 20px;
+  border-radius: 8px;
+  background-color: #296f5a;
+  background-size: 100% auto;
+  background-position: top center;
+  &.sticker-1 {
+    background-color: #f789e1;
+    background-image: url("../images/image/feedback_sticker_1_bg.png");
+  }
+  &.sticker-2 {
+    background-color: #8351ed;
+    background-image: url("../images/image/feedback_sticker_2_bg.png");
+  }
+  &.sticker-3 {
+    background-color: #00cc82;
+    background-image: url("../images/image/feedback_sticker_3_bg.png");
+  }
+  &.sticker-4 {
+    background-color: #fba847;
+    background-image: url("../images/image/feedback_sticker_4_bg.png");
+  }
+  &.sticker-5 {
+    background-color: #1894ee;
+    background-image: url("../images/image/feedback_sticker_5_bg.png");
+  }
+  &.sticker-6 {
+    background-color: #272e46;
+    background-image: url("../images/image/feedback_sticker_6_bg.png");
+  }
+  // feedback-score-wrap
+  .feedback-score-wrap {
+    @include flexColumn;
+    justify-content: center;
+    width: 200px;
+    height: 222px;
+    margin: 0 auto;
+    padding: 7px;
+    text-align: center;
+    .sticker-img {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+      + .score {
+        margin-top: -46px;
+      }
+    }
+    .score {
+      @include flexRow(flex-end);
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 80px;
+      line-height: 94px;
+      letter-spacing: -1.6px;
+      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+      span {
+        margin: 0 0 7px 2px;
+        font-size: 50px;
+        line-height: 60px;
+        letter-spacing: 0;
+      }
+    }
+    .return {
+      height: 100%;
+      background-image: url("../images/image/feedback_sticker_return.png");
+    }
+  }
+  .text-wrap {
+    strong {
+      display: block;
+      margin-bottom: 6px;
+      @include font-body-1(600);
+      color: $white;
+    }
+    .textarea {
+      height: 94px;
+    }
+    p {
+      color: $white;
+      @include font-body-1;
+    }
+  }
+  &.type-long {
+    margin: 0;
+    padding: 14px 0;
+    background-position: center;
+    background-size: 888px auto;
+    .feedback-box-inner {
+      @include flexRow;
+      width: 504px;
+      margin: 0 auto;
+      .text-wrap {
+        flex: 1;
+        min-width: 0;
+        margin-left: 14px;
+      }
+    }
+    &.sticker-1 {
+      background-image: url("../images/image/feedback_sticker_1_bg_long.png");
+    }
+    &.sticker-2 {
+      background-image: url("../images/image/feedback_sticker_2_bg_long.png");
+    }
+    &.sticker-3 {
+      background-image: url("../images/image/feedback_sticker_3_bg_long.png");
+    }
+    &.sticker-4 {
+      background-image: url("../images/image/feedback_sticker_4_bg_long.png");
+    }
+    &.sticker-5 {
+      background-image: url("../images/image/feedback_sticker_5_bg_long.png");
+    }
+    &.sticker-6 {
+      background-image: url("../images/image/feedback_sticker_6_bg_long.png");
+    }
+  }
+}
+
+// 평가 점수
+.eval-score-cont {
+  .total-score {
+    margin-bottom: 24px;
+    padding: 15px 24px;
+    background-color: $g01;
+    border-radius: 8px;
+    text-align: center;
+    .text {
+      @include font-body-2(600);
+      color: $g07;
+    }
+    .score-wrap {
+      font-weight: 600;
+      color: $g07;
+      strong {
+        @include font-title-1;
+        color: $black;
+      }
+    }
+  }
+}
+
+// ai 총평
+.ai-review-cont {
+  .ai-review-table {
+    table {
+      tr {
+        td {
+          color: $black;
+        }
+      }
+    }
+  }
+  .ai-keyword-table {
+    margin-top: 36px;
+    .table-info {
+      @include font-body-2;
+      & + .eval-table-wrap {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+// ai 채점
+.ai-grading-wrap {
+  .ai-item {
+    border-radius: 8px;
+    border: 1px solid $g02;
+    overflow: hidden;
+    & + .ai-item {
+      margin-top: 24px;
+    }
+    &:last-child {
+      .ai-item-title {
+        height: 36px;
+        padding: 8px 24px;
+      }
+    }
+    .ai-item-title {
+      height: 44px;
+      padding: 12px 24px;
+      @include font-body-2(600);
+      background-color: #f6f7fc;
+    }
+    .ai-item-cont {
+      > p {
+        padding: 12px 24px;
+        @include font-body-2;
+      }
+    }
+  }
+}
+
+// ai 문법교정
+.ai-sentence-wrap {
+  .correction-sentence-wrap {
+    .btn-copy-wrap {
+      @include flexRow;
+      justify-content: flex-end;
+      margin-left: auto;
+      position: relative;
+      @include font-body-1;
+      .btn-copy {
+        width: 138px;
+        height: 36px;
+        @include btn-outline-primary;
+      }
+      .copy-guide-text {
+        display: none;
+        width: 138px;
+        height: 36px;
+        padding: 6px 0;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid $g04;
+        border-radius: 8px;
+        color: $g04;
+      }
+      &.on {
+        .btn-copy {
+          display: none;
+        }
+        .copy-guide-text {
+          display: block;
+        }
+      }
+    }
+    .correction-sentence-text {
+      margin-top: 12px;
+      p {
+        @include font-body-2;
+        .correction-type {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 3px;
+          }
+          &.grammar {
+            &::after {
+              background-color: $green;
+            }
+          }
+          &.usage {
+            &::after {
+              background-color: $blue;
+            }
+          }
+          &.mechanics {
+            &::after {
+              background-color: $pink;
+            }
+          }
+          &.other {
+            &::after {
+              background-color: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+  .correction-count-wrap {
+    @include flexRow;
+    margin: 24px 0;
+    .total-count {
+      margin-right: 16px;
+      @include font-body-2(600);
+      em {
+        margin-left: 4px;
+        color: $primary;
+      }
+    }
+    .correction-item-wrap {
+      @include flexRow;
+      gap: 16px;
+      .correction-item {
+        @include flexRow;
+        @include font-body-2;
+        .title {
+          @include flexRow;
+          .icon {
+            @include flexRow;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            margin-right: 1px;
+            border-radius: 50%;
+            color: $white;
+          }
+        }
+        .count {
+          color: $g05;
+          span {
+            color: $black;
+          }
+        }
+        &.grammar {
+          .title {
+            .icon {
+              background-color: $green;
+            }
+          }
+        }
+        &.usage {
+          .title {
+            .icon {
+              background-color: $blue;
+            }
+          }
+        }
+        &.mechanics {
+          .title {
+            .icon {
+              background-color: $pink;
+            }
+          }
+        }
+        &.other {
+          .title {
+            .icon {
+              background-color: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+  .correction-list-wrap {
+    ul {
+      .list-item {
+        position: relative;
+        cursor: pointer;
+        & + li {
+          margin-top: 12px;
+        }
+        .wrong-box {
+          @include flexRow;
+          justify-content: space-between;
+          padding: 15px 23px;
+          border: 1px solid $g02;
+          background-color: $white;
+          .wrong-text-wrap {
+            @include flexRow;
+            .skill {
+              @include font-body-2;
+              color: $g07;
+            }
+          }
+          .expand-icon {
+            i {
+              background-color: $black;
+            }
+          }
+        }
+        .correction-box {
+          padding: 15px 23px;
+          border: 1px solid $g02;
+          background-color: $white;
+          @include font-body-2;
+          color: $g07;
+          display: none;
+          .wrong-text {
+            margin: 8px 0 11px 0;
+          }
+        }
+        .wrong-text {
+          position: relative;
+          display: inline-block;
+          margin-right: 8px;
+          @include font-body-1(600);
+          color: $black;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+          }
+          &.grammar {
+            &::after {
+              background-color: $green;
+            }
+          }
+          &.usage {
+            &::after {
+              background-color: $blue;
+            }
+          }
+          &.mechanics {
+            &::after {
+              background-color: $pink;
+            }
+          }
+          &.other {
+            &::after {
+              background-color: $yellow;
+            }
+          }
+        }
+        &.on {
+          .wrong-box {
+            display: none;
+          }
+          .correction-box {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ai 내용교정
+.ai-content-wrap {
+  p {
+    @include font-body-2;
+  }
+}

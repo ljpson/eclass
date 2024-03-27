@@ -1,0 +1,11 @@
+._mobile {
+  // toast-popup
+  .toast-popup {
+    top: 6px;
+    width: 320px;
+    .toast-text {
+      @include font-body-2;
+      text-align: center;
+    }
+  }
+}

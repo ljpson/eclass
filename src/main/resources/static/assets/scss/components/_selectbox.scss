@@ -1,0 +1,150 @@
+.selectBox {
+  position: relative;
+  min-width: 200px;
+  text-align: left;
+  user-select: none;
+  .option {
+    padding: 7px 41px 7px 15px;
+    border: 1px solid $g03;
+    border-radius: 6px;
+    background-color: $white;
+    cursor: pointer;
+    span {
+      display: block;
+      @include font-body-2;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      @include svg(arrow_down, $black);
+      transform: translateY(-50%);
+    }
+    &.placeholder {
+      color: $g04;
+    }
+  }
+  &.open-top {
+    .dropdown-list {
+      top: auto;
+      bottom: calc(100% + 2px);
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+    .option {
+      background-color: $g02;
+      color: $g04;
+      &::after {
+        background-color: $g04;
+      }
+    }
+  }
+  &.active {
+    .option {
+      border-color: $primary;
+    }
+    .dropdown-list {
+      display: block;
+      z-index: 2;
+    }
+  }
+  &.error {
+    .option {
+      border-color: $status-error;
+    }
+  }
+  &.w-124 {
+    min-width: 124px;
+  }
+  &.w-160 {
+    min-width: 160px;
+  }
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 6px;
+  background-color: $white;
+  text-align: left;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  @include font-body-2;
+  li {
+    padding: 6px 16px;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    &.selected,
+    &:hover {
+      background-color: $g01;
+    }
+  }
+  .s-scroll {
+    max-height: 160px;
+  }
+  &.list-eval-start {
+    width: 200px;
+    li {
+      padding: 0 16px;
+      .eval-progress-cont {
+        width: 100%;
+        @include flexRow;
+        .eval-name {
+          width: 50px;
+          font-weight: 600;
+          color: $g07;
+        }
+        .eval-percent {
+          flex: 1;
+          width: 100%;
+          min-width: 0;
+          text-align: center;
+          @include font-caption-2;
+          font-weight: 600;
+          span {
+            color: $g06;
+          }
+          em {
+            @include font-body-2;
+          }
+          &.percent-low {
+            color: $status-error;
+          }
+          &.percent-mid {
+            color: $yellow;
+          }
+          &.percent-high {
+            color: $green;
+          }
+          .nodata-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $g03;
+            margin: auto;
+          }
+        }
+        .eval-start {
+          @include flexRow;
+          width: 50px;
+          height: 36px;
+          @include font-body-1;
+          color: $secondary;
+          i {
+            background-color: $secondary;
+            margin: 0 0 0 2px;
+          }
+        }
+      }
+    }
+  }
+}

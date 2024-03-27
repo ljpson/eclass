@@ -1,0 +1,50 @@
+@import "abstracts/icon";
+@import "abstracts/mixin";
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/font";
+@import "base/common";
+
+@import "components/input";
+@import "components/modal";
+@import "components/selectbox";
+@import "components/scrollbar";
+@import "components/tab";
+@import "components/table";
+@import "components/toast";
+@import "components/tooltip";
+
+@import "layout/asideMenu";
+@import "layout/main";
+
+@import "page/classAlarm";
+@import "page/classEval";
+@import "page/evalData";
+@import "page/login";
+@import "page/management";
+@import "page/report";
+@import "page/simulation";
+@import "page/studentEval";
+@import "page/onboarding";
+@import "page/home";
+@import "page/error";
+
+@import "overlayscrollbars.min.css";
+
+// mobile
+@import "base/common_m";
+
+@import "components/input_m";
+@import "components/modal_m";
+@import "components/selectbox_m";
+@import "components/tab_m";
+@import "components/table_m";
+@import "components/toast_m";
+
+@import "layout/main_m";
+
+@import "page/evalData_m";
+@import "page/login_m";
+@import "page/report_m";
+@import "page/error_m";

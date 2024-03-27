@@ -1,0 +1,107 @@
+._login {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  background-image: url("../images/image/login_bg.png");
+  background-size: cover;
+  .login-inner {
+    @include flexRow;
+    justify-content: center;
+    min-height: 100%;
+    padding: 40px;
+    .login-cont-wrap {
+      .logo-area {
+        display: block;
+        width: 264px;
+        height: 48px;
+        margin: auto;
+        background-image: url("../images/image/login_logo.svg");
+      }
+      .login-box {
+        width: 440px;
+        margin-top: 38px;
+        padding: 46px 40px;
+        box-shadow: 0px 16px 30px 0px rgba(0, 0, 0, 0.2);
+        form {
+          .title-wrap {
+            text-align: center;
+            .title {
+              @include font-title-1;
+              font-weight: 600;
+            }
+            .title-desc {
+              @include font-body-2;
+              color: $g06;
+              margin-top: 8px;
+            }
+          }
+          .login-area {
+            margin-top: 30px;
+            .login-item {
+              position: relative;
+              & + .login-item {
+                margin-top: 24px;
+              }
+              .selectBox {
+                .option {
+                  &::after {
+                    width: 24px;
+                    height: 24px;
+                  }
+                }
+                .dropdown-list {
+                  top: 44px;
+                }
+              }
+              .input-wrap {
+                .input-text {
+                  .btn-show-pwd {
+                    background-color: $primary;
+                  }
+                }
+              }
+            }
+          }
+          .login-btn-wrap {
+            margin-top: 30px;
+            @include flexRow;
+            justify-content: center;
+            .btn-login {
+              width: 100%;
+              height: 54px;
+              border-radius: 8px;
+              @include btn-primary;
+            }
+          }
+        }
+      }
+      .login-session-expiration {
+        width: 440px;
+        margin-top: 38px;
+        padding: 46px 40px;
+        .title-wrap {
+          text-align: center;
+          .title {
+            @include font-title-1;
+            font-weight: 600;
+          }
+          .title-desc {
+            @include font-body-2;
+            color: $g06;
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+    .copyright {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      padding: 20px 0;
+      @include font-body-2;
+      color: $g06;
+      text-align: center;
+    }
+  }
+}

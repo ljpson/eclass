@@ -13,10 +13,9 @@ public class KlassQueryParams extends QueryParams {
     Long id;                //공통아이디
     Long teacherId;         //교사아이디
     Long klassId;           //학급아이디
-    Long bookId;            //교과서아이디
     GradeType gradeType;    //학년
     String klassName;       //학급명
     String password;        //학생초기비밀번호
-    String studentLimitNum; //학생수제한
+    String studentAmount;   //학생수
 
 }

@@ -1,0 +1,61 @@
+// tab nav
+.tab-nav {
+  position: relative;
+  margin-bottom: 36px;
+  text-align: center;
+  .tab-nav-inner {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 10px;
+    background-color: $g02;
+    ul {
+      @include flexRow;
+      gap: 8px;
+      li {
+        position: relative;
+        min-width: 136px;
+        padding: 7px;
+        color: $g07;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        &.on {
+          background-color: $white;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+// tab nav line
+.tab-nav-line {
+  .tab-nav-inner {
+    border-bottom: 1px solid $g03;
+    ul {
+      @include flexRow;
+      li {
+        position: relative;
+        width: 144px;
+        padding: 10px 0 11px;
+        text-align: center;
+        font-weight: 600;
+        color: $g07;
+        cursor: pointer;
+        &.on {
+          color: $primary;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

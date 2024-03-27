@@ -1,0 +1,306 @@
+._mobile {
+  // evalData
+  ._evalData {
+    .card-item-wrap {
+      display: block;
+      .card-item {
+        & + .card-item {
+          margin-top: 8px;
+        }
+        .card-front,
+        .card-back {
+          width: 100%;
+        }
+        .card {
+          width: 100%;
+          min-height: 84px;
+          padding: 8px;
+          &.card-word {
+            border-radius: 8px 8px 0 0;
+          }
+          &.card-meaning {
+            padding: 10px 16px;
+            &::before {
+              top: 7px;
+              left: 7px;
+              width: calc(100% - 14px);
+              height: calc(100% - 14px);
+            }
+          }
+          .card-text {
+            @include font-body-2;
+            text-align: center;
+            font-weight: 400;
+          }
+        }
+      }
+      &.type-all {
+        .card-item {
+          .card-flip {
+            display: block;
+            .card-front {
+              .card {
+                border-radius: 8px 8px 0 0;
+              }
+            }
+            .card-back {
+              .card {
+                border-radius: 0 0 8px 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .writing-eval-wrap {
+      margin-top: 24px;
+      padding: 0;
+      .tab-nav-line {
+        margin-bottom: 12px;
+      }
+      .eval-area {
+        display: block;
+        .textbook-img {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+        .eval-item-wrap {
+          .eval-item {
+            .eval-subject-wrap {
+              margin-bottom: 16px;
+              background-color: $g01;
+              padding: 16px;
+              border-radius: 8px;
+              text-align: left;
+              .text-wrap {
+                .text-eng {
+                  @include font-body-2(600);
+                  margin-bottom: 4px;
+                }
+                .text-kor {
+                  @include font-body-2;
+                  color: $g07;
+                }
+              }
+              .eval-purpose {
+                margin-top: 8px;
+                padding: 12px 16px 16px;
+                border-radius: 8px;
+                background-color: $white;
+                @include font-body-2;
+                color: $g07;
+                text-align: center;
+                .title {
+                  margin-bottom: 0;
+                  font-weight: 600;
+                }
+                p {
+                  margin-top: 8px;
+                  text-align: left;
+                }
+              }
+            }
+          }
+          .title {
+            margin-bottom: 12px;
+          }
+          .eval-condition {
+            .condition-text-wrap {
+              margin-top: 0;
+              padding: 0;
+              p {
+                & + p {
+                  margin-top: 12px;
+                }
+              }
+            }
+            & + .eval-standard {
+              margin-top: 36px;
+            }
+          }
+        }
+      }
+      .fold-area {
+        .fold-cont-wrap {
+          position: relative;
+          height: 216px;
+          overflow: hidden;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(0deg, #fff 0.05%, rgba(255, 255, 255, 0.6) 46.05%, rgba(255, 255, 255, 0) 99.95%);
+            opacity: 0.6;
+            pointer-events: none;
+          }
+        }
+        .fold-btn-wrap {
+          margin: 22px 0;
+          text-align: center;
+          .btn-fold {
+            &::before {
+              content: "전체보기";
+              display: block;
+            }
+            &::after {
+              content: "";
+              display: block;
+              width: 20px;
+              height: 20px;
+              margin-left: 2px;
+              @include svg(arrow_down, $black);
+            }
+          }
+        }
+        &.open {
+          .fold-cont-wrap {
+            height: auto;
+            overflow: visible;
+            &::after {
+              content: none;
+            }
+          }
+          .fold-btn-wrap {
+            .btn-fold {
+              &::before {
+                content: "접기";
+              }
+              &::after {
+                @include svg(arrow_up, $black);
+              }
+            }
+          }
+        }
+        .btn-grammar-check {
+          width: 100%;
+          height: 44px;
+          margin-bottom: 12px;
+          @include btn-outline-primary;
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+      .input-count {
+        margin-bottom: 12px;
+        text-align: right;
+        color: $g06;
+        b {
+          font-weight: 600;
+          color: $secondary;
+        }
+      }
+    }
+    .teacherMade-cont-wrap {
+      margin-top: 24px;
+      padding: 0;
+      .eval-cont-area {
+        margin-bottom: 16px;
+        .title {
+          margin-bottom: 12px;
+        }
+        p {
+          min-height: auto;
+        }
+      }
+    }
+    .unit-synthesis-wrap {
+      margin-top: 24px;
+      padding: 0;
+      .scroll-horizontal-wrap {
+        margin: 0 -16px;
+        .table-wrap {
+          min-width: 750px;
+          padding: 0 16px;
+        }
+      }
+    }
+    .grammar-error-cont {
+      margin-top: 24px;
+      .error-text-detail {
+        margin-bottom: 24px;
+        .error-text {
+          font-weight: 600;
+          span {
+            color: $green;
+          }
+        }
+        .error-text-desc {
+          margin-top: 12px;
+          @include font-body-2;
+          .good {
+            color: $green;
+          }
+          .bad {
+            color: $status-error;
+          }
+        }
+      }
+      .grammar-example-wrap {
+        .title {
+          font-weight: 600;
+        }
+        .example-item-wrap {
+          margin-top: 12px;
+          .example-item {
+            @include flexRow;
+            .item-badge {
+              position: relative;
+              width: 38px;
+              height: 26px;
+              border-radius: 16px;
+              margin-right: 12px;
+              &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+              }
+            }
+            .item-desc {
+              flex: 1;
+              min-width: 0;
+              @include font-body-2;
+            }
+            & + .example-item {
+              margin-top: 12px;
+            }
+            &.type-correct {
+              .item-badge {
+                background-color: $green;
+                &::before {
+                  @include svg(correct);
+                }
+              }
+              .item-desc {
+                span {
+                  color: $green;
+                }
+              }
+            }
+            &.type-incorrect {
+              .item-badge {
+                background-color: $status-error;
+                &::before {
+                  @include svg(incorrect);
+                }
+              }
+              .item-desc {
+                span {
+                  color: $status-error;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

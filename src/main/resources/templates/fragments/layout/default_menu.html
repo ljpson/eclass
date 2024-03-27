@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="defaultMenu">
+        <aside class="aside-menu">
+            <div class="menu-top">
+                <h1><a href="#"></a></h1>
+                <div class="hello">
+                    <p><span th:text="${session.teacher.teacherName}">박능률</span>님, 안녕하세요.</p>
+                    <button class="btn-notice new-notice">
+                        <i class="icon-notice"></i>
+                    </button>
+                    <!-- 새로운 알람이 오면 new-notice 추가 -->
+                </div>
+                <div class="btn-wrap">
+                    <button class="btn-url-forward"><i class="icon-share"></i>선생님 URL 전달</button>
+                    <button class="btn-class-make"><i class="icon-class"></i>학급 추가 및 삭제</button>
+                </div>
+            </div>
+            <div class="menu-mid">
+                <div class="s-scroll">
+                    <div class="s-scroll-inner">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" class="menu-evalData">평가 자료</a>
+                                </li>
+                                <li>
+                                    <button class="menu-classEval open">학급 평가함</button>
+                                    <div class="sub-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="/main">전체 발행중 평가</a>
+                                            </li>
+                                            <li>
+                                                <a href="/menu1" class="on">중학교 1학년 2반</a>
+                                            </li>
+                                            <li>
+                                                <a href="/menu2">중학교 2학년 1반</a>
+                                            </li>
+                                            <li>
+                                                <a href="/menu3">중학교 2학년 3반</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu-report">종합 리포트</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu-management">전체 학생 관리</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">
+                <button class="btn-logout">로그아웃</button>
+            </div>
+        </aside>
+
+</th:block>
+
+</html>

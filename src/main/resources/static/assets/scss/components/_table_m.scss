@@ -1,0 +1,94 @@
+._mobile {
+  // table
+  table {
+    @include font-body-2;
+    tbody {
+      tr {
+        td {
+          &:first-child.text-left {
+            padding-left: 16px !important;
+          }
+        }
+      }
+    }
+  }
+
+  // fixed-table-scroll-wrap
+  .fixed-table-scroll-wrap {
+    @include flexRow;
+    margin: 0 -16px;
+    .table-left {
+      padding-left: 16px;
+      .common-table-wrap {
+        table {
+          width: auto;
+          thead {
+            th {
+              border-right: 1px solid $g02;
+              border-radius: 4px 0 0 4px;
+            }
+          }
+          tbody {
+            td {
+              border-right: 1px solid $g04;
+            }
+          }
+        }
+      }
+    }
+    .table-right {
+      flex: 1;
+      min-width: 0;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .common-table-wrap {
+        table {
+          thead {
+            th {
+              border-radius: 0;
+              &:last-child {
+                border-radius: 0 4px 4px 0;
+              }
+            }
+          }
+          tbody {
+            td {
+              .eval-progress-wrap {
+                .eval-progress-bar {
+                  .progress-percent {
+                    flex: none;
+                    width: 100%;
+                    margin-top: 6px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 평가 항목 테이블
+  .eval-table-wrap {
+    table {
+      caption {
+        padding-left: 16px;
+      }
+      tbody {
+        tr {
+          &.tr-total-score {
+            td {
+              @include font-body-1(600);
+              &.score {
+                @include font-body-2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

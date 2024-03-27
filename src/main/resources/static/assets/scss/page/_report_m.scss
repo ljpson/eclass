@@ -1,0 +1,138 @@
+._mobile {
+  // report
+  ._report {
+    .main-title-wrap {
+      margin-bottom: 24px;
+      .report-date-duration-wrap {
+        display: block;
+        margin-top: 0;
+        .selectBox {
+          min-width: 160px;
+          width: 160px;
+          margin-bottom: 8px;
+        }
+        .date-duration {
+          .input-text {
+            flex: 1;
+            min-width: 0;
+          }
+        }
+        .count {
+          margin-top: 12px;
+          color: $g07;
+          span {
+            color: $blue;
+          }
+        }
+      }
+    }
+    .report-detail-box {
+      margin-top: 24px;
+      .box-btm {
+        display: block;
+        padding: 0;
+        .scroll-horizontal-wrap {
+          @include flexRow(flex-start);
+          margin: 0 -16px;
+          padding: 0 16px 0 42px;
+          .chart-box-wrap {
+            min-width: 180px;
+            padding: 0;
+            border: 0;
+            & + .chart-box-wrap {
+              margin-left: 16px;
+            }
+            .chart-title {
+              text-align: left;
+              color: $black;
+              @include font-body-1(600);
+            }
+            .chart-doubleCircle {
+              width: 150px;
+              margin: 15px auto;
+              padding: 0;
+              .circle-wrap {
+                .circle-out {
+                  svg {
+                    width: 150px;
+                    height: 150px;
+                  }
+                }
+                .circle-in {
+                  top: 7px;
+                  left: 7px;
+                  z-index: -1;
+                  svg {
+                    width: 136px;
+                    height: 136px;
+                  }
+                }
+              }
+              .detail-wrap {
+                top: 50px;
+                .detail-top {
+                  @include font-body-1;
+                  strong {
+                    @include font-heading-2;
+                  }
+                }
+              }
+            }
+            .chart-compareBar {
+              margin-top: 20px;
+              .chart-area {
+                height: 160px;
+              }
+            }
+          }
+        }
+        .chart-info-wrap {
+          margin-top: 16px;
+          .chart-index {
+            @include flexRow;
+            justify-content: center;
+            gap: 16px;
+            div {
+              @include flexRow;
+              @include font-caption-1;
+              color: $g06;
+              span {
+                @include ell;
+                flex: 1;
+              }
+              &::before {
+                content: "";
+                display: block;
+                width: 10px;
+                height: 10px;
+                margin-right: 4px;
+                border-radius: 3px;
+              }
+              &.index-this-class {
+                &::before {
+                  display: block;
+                  background-color: #536ceb;
+                }
+              }
+              &.index-all-class {
+                &::before {
+                  background-color: #cdd7f8;
+                }
+              }
+            }
+          }
+        }
+        .table-box-wrap {
+          margin-top: 24px;
+          .table-box-title {
+            margin: 0;
+            margin-bottom: 16px;
+          }
+          .common-table-wrap {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

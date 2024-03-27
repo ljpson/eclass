@@ -63,7 +63,6 @@ function settingList(res) {
                 tableWarp.push(`<tr id="saveForm_`+ i +`">
                                     <td>
                                         <input type="hidden" name="teacherId" value="` + data.teacherId + `">
-                                        <input type="hidden" name="bookId" value="` + data.bookId + `">
                                         <input type="hidden" name="gradeType" value="` + data.gradeType + `">
                                         <input type="hidden" name="password" value="` + data.password + `">
                                         <input type="hidden" name="deleteYn" value="` + data.deleteYn + `">
@@ -76,7 +75,7 @@ function settingList(res) {
                                     <td>` + data.neId + `</td>
                                     <td>` + data.teacherName + `</td>
                                     <td><input type='text' name='klassName' value='` + data.klassName + `'></td>
-                                    <td><input type='text' name='studentLimitNum' value='` + data.studentLimitNum + `'></td>
+                                    <td><input type='text' name='studentAmount' value='` + data.studentAmount + `'></td>
                                     <td><button onclick="updateKlass(` + i + `)">수정</button></td>
                                     <td><button onclick="deleteKlass(` + i + `)">삭제</button></td>
                                 </tr>`);

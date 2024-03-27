@@ -1,6 +1,6 @@
 package kr.co.neteacher.eclass.controller.rest;
 
-import kr.co.neteacher.eclass.controller.common.Const;
+import kr.co.neteacher.eclass.common.Const;
 import kr.co.neteacher.eclass.dto.KlassDTO;
 import kr.co.neteacher.eclass.dto.KlassQueryParams;
 import kr.co.neteacher.eclass.entity.Klass;

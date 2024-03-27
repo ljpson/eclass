@@ -1,0 +1,231 @@
+._simulation {
+  @include flexColumn;
+  height: 100%;
+  .simulation-header {
+    padding: 14px 30px;
+    border-bottom: 1px solid $black-alpha-20;
+    background-color: $white;
+  }
+  .simulation-cont {
+    @include flexRow(initial);
+    flex: 1;
+    min-height: 0;
+    .cont-left {
+      @include flexColumn;
+      width: 501px;
+      height: 100%;
+      border-right: 1px solid $black-alpha-20;
+      background-color: $white;
+      .s-scroll {
+        .s-scroll-inner {
+          padding: 20px;
+        }
+        .os-scrollbar.os-scrollbar-vertical {
+          right: 4px;
+        }
+      }
+      .tab-nav-line {
+        padding-top: 12px;
+        .tab-nav-inner {
+          ul {
+            li {
+              flex: 1;
+            }
+          }
+        }
+      }
+      .tab-cont {
+        flex: 1;
+        min-height: 0;
+      }
+      .tab-simulation {
+        .eval-area {
+          .textbook-img {
+            margin-bottom: 16px;
+            cursor: pointer;
+            img {
+              width: 100%;
+            }
+          }
+          .eval-item-wrap {
+            .eval-item {
+              .eval-subject-wrap {
+                background-color: $g01;
+                padding: 16px;
+                border-radius: 8px;
+                text-align: center;
+                .text-wrap {
+                  .text-eng {
+                    @include font-title-2;
+                    margin-bottom: 4px;
+                  }
+                  .text-kor {
+                    color: $g07;
+                  }
+                }
+                .eval-purpose {
+                  margin-top: 16px;
+                  padding: 12px 16px 16px;
+                  border-radius: 8px;
+                  background-color: $white;
+                  @include font-body-2;
+                  color: $g07;
+                  .title {
+                    margin-bottom: 0;
+                    font-weight: 600;
+                  }
+                  p {
+                    margin-top: 8px;
+                    text-align: left;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .text-box {
+          padding: 16px;
+          border-radius: 8px;
+          background-color: $g01;
+          p {
+            &.kor {
+              margin-top: 4px;
+              color: $g07;
+            }
+          }
+        }
+      }
+      .evail-detail-cont-wrap {
+        .eval-detail-wrap {
+          .title {
+            margin-bottom: 16px;
+            font-weight: bold;
+          }
+          p {
+            @include font-body-2;
+          }
+        }
+        .preview-file-title-wrap {
+          margin-top: 36px;
+        }
+      }
+    }
+    .cont-right {
+      flex: 1;
+      min-width: 0;
+      .cont-s-scroll {
+        .cont-s-scroll-inner {
+          height: 100%;
+        }
+      }
+      .right-container {
+        height: 100%;
+        padding: 50px 50px 100px 50px;
+        .right-container-inner {
+          max-width: 1320px;
+          height: 100%;
+          margin: 0 auto;
+          .submit-input-wrap {
+            @include flexColumn;
+            height: 100%;
+            .input-count {
+              margin: 0 0 16px auto;
+              @include font-body-1;
+              color: $g06;
+              b {
+                font-weight: 600;
+                color: $secondary;
+              }
+            }
+            .btn-grammar-check {
+              width: 143px;
+              height: 44px;
+              @include btn-outline-primary;
+              margin-left: auto;
+              margin-bottom: 24px;
+              i {
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
+              }
+            }
+            .contenteditable-wrap {
+              flex: 1;
+              min-height: 0;
+              .contenteditable {
+                height: 100%;
+              }
+            }
+            .input-text {
+              flex: 1;
+              min-height: 0;
+              .textarea {
+                height: 100%;
+                @include font-body-1;
+              }
+            }
+          }
+          .file-upload-wrap {
+            @include flexColumn;
+            height: 100%;
+            .file-list-box {
+              flex: 1;
+              min-height: 0;
+              border-radius: 8px;
+              background-color: $white;
+              .s-scroll-inner {
+                padding: 24px;
+              }
+              .preview-file-upload-wrap {
+                border: 0;
+              }
+            }
+          }
+          .btm-wrap {
+            @include flexRow(flex-start);
+            margin-top: 16px;
+            .submit-status {
+              @include flexRow;
+              color: $g06;
+              @include font-body-1;
+              .save {
+                font-weight: 600;
+                &.save-complete {
+                  color: $primary;
+                }
+              }
+              .date {
+                margin-left: 8px;
+              }
+            }
+            .btn-wrap {
+              @include flexRow;
+              gap: 8px;
+              margin-left: auto;
+              button {
+                width: 138px;
+                height: 44px;
+                &.btn-outline {
+                  @include btn-outline-primary;
+                }
+                &.btn-fill {
+                  @include btn-primary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    .simulation-cont {
+      .cont-right {
+        .right-container {
+          min-width: 779px;
+          padding: 24px 24px 100px 24px;
+        }
+      }
+    }
+  }
+}

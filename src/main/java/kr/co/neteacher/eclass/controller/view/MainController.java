@@ -1,53 +1,53 @@
 package kr.co.neteacher.eclass.controller.view;
 
 import kr.co.neteacher.eclass.entity.Teacher;
-import kr.co.neteacher.eclass.repository.TeacherRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Optional;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @RequiredArgsConstructor
 @Controller
 public class MainController {
-
-    private HttpSession session;
-
-    @Autowired
-    private final TeacherRepository teacherRepository;
 
     /**
      * 메인 페이지
      * @return
      */
     @GetMapping("/")
-    public String main(HttpServletRequest request, Model model) {
+    public String root(@SessionAttribute("teacher") Teacher teacher, Model model) {
 
-        if (session == null) {
-            session = request.getSession();
-            // 능률아이디 조회
-            String neId = "NE00001";
-            String teacherName = "이선생";
-            // 교사정보 조회
-            Optional<Teacher> teacher = teacherRepository.findByNeId(neId);
-            if (!teacher.isPresent()) {
-                Teacher saveTeacher = new Teacher()
-                        .setNeId(neId)
-                        .setTeacherName(teacherName);
-                teacherRepository.save(saveTeacher);
-                // 교사정보 조회(저장할 때 생성된 아이디 포함)
-                teacher = teacherRepository.findByNeId(neId);
-            }
-            // 세션 저장
-            session.setAttribute("teacher", teacher.get());
+        if (teacher != null) {
+            model.addAttribute("teacher",teacher);
+            model.addAttribute("content", "views/klass/setting");
+            return "views/main";
+        } else {
+            return "redirect:/main";
         }
-        model.addAttribute("teacher",session.getAttribute("teacher"));
+    }
 
+    @GetMapping("/main")
+    public String main(Model model) {
+        model.addAttribute("content", "views/klass/setting");
         return "views/main";
+    }
+
+    @GetMapping("/menu1")
+    public String menu1(Model model) {
+        model.addAttribute("content", "views/deploy/list"); // main1.html을 렌더링하기 위한 content 변수 추가
+        return "views/main"; // layout.html을 반환
+    }
+
+    @GetMapping("/menu2")
+    public String menu2(Model model) {
+        model.addAttribute("content", "views/deploy/main2"); // main2.html을 렌더링하기 위한 content 변수 추가
+        return "views/main"; // layout.html을 반환
+    }
+
+    @GetMapping("/menu3")
+    public String menu3(Model model) {
+        model.addAttribute("content", "views/test/list"); // main3.html을 렌더링하기 위한 content 변수 추가
+        return "views/main"; // layout.html을 반환
     }
 }

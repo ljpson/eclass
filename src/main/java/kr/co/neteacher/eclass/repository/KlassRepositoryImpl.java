@@ -44,11 +44,10 @@ public class KlassRepositoryImpl extends QuerydslRepositorySupport implements Kl
         return queryFactory
                 .select(Projections.fields(KlassDTO.class,
                         klass.id.as("klassId"),
-                        klass.bookId,
                         klass.gradeType,
                         klass.klassName,
                         klass.password,
-                        klass.studentLimitNum,
+                        klass.studentAmount,
                         klass.deleteYn,
                         klass.createBy,
                         klass.createDate,

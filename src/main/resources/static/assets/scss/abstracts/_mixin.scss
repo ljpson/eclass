@@ -1,0 +1,177 @@
+// font
+@mixin font-heading-1() {
+  font-size: 52px;
+  line-height: 58px;
+  font-weight: 600;
+}
+@mixin font-heading-2() {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+@mixin font-title-1() {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+@mixin font-title-2() {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+}
+@mixin font-title-3($weight: 400) {
+  font-size: 18px;
+  line-height: 24px;
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+}
+@mixin font-body-1($weight: 400) {
+  font-size: 16px;
+  line-height: 22px;
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+}
+@mixin font-body-2($weight: 400) {
+  font-size: 14px;
+  line-height: 20px;
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+}
+@mixin font-caption-1($weight: 400) {
+  font-size: 12px;
+  line-height: 18px;
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+}
+@mixin font-caption-2($weight: 400) {
+  font-size: 10px;
+  line-height: 16px;
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+}
+
+@mixin ell($line: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if $line > 1 {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    white-space: initial !important;
+    word-break: break-all;
+  } @else {
+    white-space: nowrap;
+  }
+}
+
+@mixin bar {
+  width: 1px;
+  height: 10px;
+  margin: 0 10px;
+  background-color: $g03;
+}
+
+// btn fill
+@mixin btn-primary() {
+  border-radius: 8px;
+  background-color: $primary;
+  color: $white;
+  &:hover {
+    background-color: $primary-hover;
+  }
+  &:disabled {
+    background-color: $g02;
+    color: $g04;
+    i {
+      background-color: $g04;
+    }
+  }
+}
+@mixin btn-secondary() {
+  border-radius: 8px;
+  background-color: $secondary;
+  color: $white;
+  &:hover {
+    background-color: $secondary-hover;
+  }
+  &:disabled {
+    background-color: $g02;
+    color: $g04;
+    i {
+      background-color: $g04;
+    }
+  }
+}
+
+// btn outline
+@mixin btn-outline-primary() {
+  border: 1px solid $primary;
+  border-radius: 8px;
+  background-color: transparent;
+  color: $primary;
+  i {
+    background-color: $primary;
+  }
+  &:hover {
+    background-color: rgba(130, 49, 142, 0.1);
+  }
+  &:disabled {
+    background-color: transparent;
+    color: $g04;
+    border-color: $g04;
+    i {
+      background-color: $g04;
+    }
+  }
+}
+@mixin btn-outline-error() {
+  border: 1px solid $status-error;
+  border-radius: 8px;
+  background-color: transparent;
+  color: $status-error;
+  &:hover {
+    background-color: rgba(210, 64, 108, 0.1);
+  }
+  &:disabled {
+    background-color: transparent;
+    color: $g04;
+    i {
+      background-color: $g04;
+    }
+  }
+}
+
+// btn circle
+@mixin btn-circle-white() {
+  border-radius: 50%;
+  background-color: $white;
+  i {
+    background-color: $black;
+  }
+  &:hover {
+    background-color: $black-alpha-10;
+  }
+  &:disabled {
+    background-color: $g02;
+    i {
+      background-color: $g04;
+    }
+  }
+}
+
+// flex
+@mixin flexRow($al: center) {
+  display: flex;
+  align-items: $al;
+  flex-direction: row;
+}
+
+@mixin flexColumn() {
+  display: flex;
+  flex-direction: column;
+}

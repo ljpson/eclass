@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/default_head :: defaultHead}"></head>
-<body>
-<th:block th:include="fragments/default_menu :: defaultMenu"></th:block>
-여기가 메인입니다.<br><br>
-* Controller에서 교사정보 조회 후
-세션 설정해서 model로 넘긴 값<br>
-교사아이디 : <span th:text="${teacher.id}"></span><br>
-교사이름 : <span th:text="${teacher.teacherName}"></span><br><br>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-</body>
+<head th:replace="~{fragments/layout/default_head :: defaultHead}"></head>
+<body th:replace="~{fragments/layout/default_body :: defaultBody}"></body>
 </html>

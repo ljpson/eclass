@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:fragment="content">
+<main>
+  <div class="s-scroll main-s-scroll">
+    <div class="s-scroll-inner main-s-scroll-inner">
+      <div class="container container-fill">
+        <div class="container-inner">
+          <!-- 내용 -->
+          <div class="_classEval box-fill">
+            <div class="main-title-wrap">
+              <div class="title-left">
+                <div class="main-title">
+                  <h2>학급 정보 설정</h2>
+                </div>
+              </div>
+            </div>
+            <div class="classEval-setting-wrap setting-box box-bg box-fill-cont">
+              <div class="box-header-wrap">
+                <div class="tab-nav-line">
+                  <div class="tab-nav-inner">
+                    <ul>
+                      <li class="on">기본 정보 설정</li>
+                      <li>기본 평가 조건 설정</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="box-top-wrap">
+                <div class="s-scroll scroll-shadow">
+                  <div class="s-scroll-inner scroll-shadow-inner">
+                    <div class="input-row-wrap">
+                      <div class="item-row">
+                        <div class="row-title-wrap">
+                          <div class="row-title">
+                            <div class="title">학년</div>
+                          </div>
+                        </div>
+                        <div class="row-cont-wrap">
+                          <div class="row-text">중학교 1학년</div>
+                        </div>
+                      </div>
+                      <div class="item-row">
+                        <div class="row-title-wrap">
+                          <div class="row-title">
+                            <div class="title">반</div>
+                          </div>
+                        </div>
+                        <div class="row-cont-wrap">
+                          <div class="row-text">1반</div>
+                        </div>
+                      </div>
+                      <div class="item-row">
+                        <div class="row-title-wrap">
+                          <div class="row-title">
+                            <div class="title">학급명</div>
+                          </div>
+                        </div>
+                        <div class="row-cont-wrap">
+                          <div class="input-wrap">
+                            <div class="input-text">
+                              <input type="text" placeholder="학급명을 입력해주세요. (10자 이내)" value="영어 1 A반" />
+                            </div>
+                            <div class="input-count"><b>6</b>/10</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item-row">
+                        <div class="row-title-wrap">
+                          <div class="row-title">
+                            <div class="title">학급 프로필</div>
+                          </div>
+                        </div>
+                        <div class="row-cont-wrap">
+                          <div class="select-classProfile-wrap">
+                            <div class="profile-item on">
+                              <!-- 활성화 on -->
+                              <div class="class-badge type-1"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-2"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-3"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-4"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-5"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-add"></div>
+                            </div>
+                            <div class="profile-item">
+                              <div class="class-badge type-custom">
+                                <img src="../../assets/images/sample/class_profile_sample_1.png" alt="" />
+                              </div>
+                              <div class="btn-dropdown">
+                                <button class="btn-edit">
+                                  <i class="icon-edit"></i>
+                                </button>
+                                <div class="dropdown-list">
+                                  <ul>
+                                    <li>이미지 삭제</li>
+                                    <li>이미지 변경</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="profile-item on">
+                              <div class="class-badge type-custom">
+                                <img src="../../assets/images/sample/class_profile_sample_1.png" alt="" />
+                              </div>
+                              <div class="btn-dropdown">
+                                <button class="btn-edit">
+                                  <i class="icon-edit"></i>
+                                </button>
+                                <div class="dropdown-list">
+                                  <ul>
+                                    <li>이미지 삭제</li>
+                                    <li>이미지 변경</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer-wrap">
+                <div class="btn-wrap">
+                  <button class="btn-outline2">학급 삭제</button>
+                  <button class="btn-fill">변경 저장</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</th:block>

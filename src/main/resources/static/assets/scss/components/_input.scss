@@ -1,0 +1,375 @@
+@mixin inputTextStyle() {
+  border: 1px solid $g03;
+  border-radius: 6px;
+  background-color: $white;
+  overflow: hidden;
+  input,
+  textarea {
+    flex: 1;
+    min-width: 0;
+    background-color: transparent;
+    caret-color: $primary;
+    @include font-body-2;
+    font-weight: 400;
+    &::placeholder {
+      color: $g04;
+    }
+    &:focus::placeholder {
+      color: transparent;
+    }
+    &:disabled {
+      background-color: $g02;
+    }
+  }
+  input {
+    padding: 7px 11px 7px 15px;
+  }
+  .textarea {
+    flex: 1;
+    min-width: 0;
+    min-height: 64px;
+    padding: 11px 11px 11px 15px;
+    resize: none;
+    > .os-scrollbar.os-scrollbar-vertical {
+      right: 4px;
+    }
+  }
+  &.focus {
+    border-color: $primary;
+  }
+  &.readonly,
+  &.disabled {
+    border-color: $g02;
+    background-color: $g02;
+    button {
+      pointer-events: none;
+    }
+    i {
+      background-color: $g04;
+    }
+  }
+  &.readonly {
+    input,
+    textarea {
+      color: $g06;
+    }
+  }
+  &.disabled {
+    input,
+    textarea {
+      color: $g04;
+    }
+  }
+  &.error {
+    border-color: $status-error;
+  }
+}
+
+// input-error-text
+.input-error-text {
+  @include flexRow;
+  margin-top: 2px;
+  color: $status-error;
+  @include font-caption-1;
+  &::before {
+    content: "";
+    flex: none;
+    display: block;
+    width: 18px;
+    height: 18px;
+    @include svg(alert, $status-error);
+    margin-right: 4px;
+  }
+}
+
+// input-wrap
+.input-wrap {
+  @include flexRow;
+  gap: 8px;
+  position: relative;
+  .input-text,
+  .selectBox {
+    flex: 1;
+    min-width: 0;
+  }
+  .input-error-text {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  > span {
+    flex: none;
+    @include font-body-2;
+  }
+}
+
+// text
+.input-text {
+  @include flexRow;
+  @include inputTextStyle;
+  &.w-480 {
+    width: 480px;
+  }
+  &.type-edit {
+    flex-wrap: wrap;
+    .edit-area {
+      flex: none;
+      width: 100%;
+    }
+    .textarea {
+      height: 124px;
+    }
+  }
+  button {
+    flex: none;
+    &:last-child {
+      margin-right: 11px;
+    }
+    & + button {
+      margin-left: 4px;
+    }
+  }
+  .btn-show-pwd {
+    width: 20px;
+    height: 20px;
+    @include svg(visibility_on, $black);
+    &.on {
+      @include svg(visibility_off, $black);
+    }
+  }
+  i {
+    width: 20px;
+    height: 20px;
+    background-color: $black;
+  }
+  &.input-stepper {
+    padding: 0 11px;
+    input {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+    button {
+      margin: 0;
+    }
+  }
+}
+
+// checkbox
+.checkbox {
+  flex: none;
+  input {
+    display: none;
+    & + label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      vertical-align: top;
+      i {
+        width: 24px;
+        height: 24px;
+        background-image: url("../images/icon/checkbox.svg");
+      }
+      &:hover {
+        i {
+          background-position: 50% 0;
+        }
+      }
+      span {
+        margin-left: 4px;
+        @include font-body-2;
+      }
+    }
+    &:checked {
+      + label {
+        i {
+          background-image: url("../images/icon/checkbox_checked.svg");
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        cursor: default;
+        i {
+          background-position: 100% 0;
+        }
+        span {
+          color: $g04;
+        }
+      }
+    }
+  }
+}
+
+// radio
+.radio {
+  flex: none;
+  &-wrap {
+    @include flexRow;
+    gap: 16px;
+  }
+  input {
+    display: none;
+    & + label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      vertical-align: top;
+      i {
+        width: 24px;
+        height: 24px;
+        background-image: url("../images/icon/radio.svg");
+      }
+      &:hover {
+        i {
+          background-position: 50% 0;
+        }
+      }
+      span {
+        margin-left: 4px;
+        @include font-body-2;
+      }
+    }
+    &:checked {
+      + label {
+        i {
+          background-image: url("../images/icon/radio_checked.svg");
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        cursor: default;
+        i {
+          background-position: 100% 0;
+        }
+      }
+    }
+  }
+}
+
+// switch
+.switch {
+  flex: none;
+  input {
+    display: none;
+    & + label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      vertical-align: top;
+      i {
+        width: 26px;
+        height: 16px;
+        background-image: url("../images/icon/switch.svg");
+        & + span {
+          margin-left: 4px;
+        }
+      }
+      span {
+        @include font-body-2;
+        & + i {
+          margin-left: 4px;
+        }
+      }
+    }
+    &:checked {
+      & + label {
+        i {
+          background-position: 100% 0;
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        cursor: default;
+        i {
+          background-image: url("../images/icon/switch_disabled.svg");
+        }
+      }
+    }
+  }
+}
+
+// bookmark
+.bookmark {
+  flex: none;
+  input {
+    display: none;
+    & + label {
+      @include flexRow;
+      cursor: pointer;
+      &::before {
+        content: "";
+        width: 24px;
+        height: 24px;
+        background-image: url("../images/icon/bookmark.svg");
+      }
+      &:hover {
+        &::before {
+          background-position: 50% 0;
+        }
+      }
+      span {
+        margin-left: 4px;
+      }
+    }
+    &:checked {
+      + label {
+        &::before {
+          background-image: url("../images/icon/bookmark_on.svg");
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        cursor: default;
+        &::before {
+          background-position: 100% 0;
+        }
+      }
+    }
+  }
+}
+
+// contenteditable-wrap
+.contenteditable-wrap {
+  position: relative;
+  border: 1px solid $g03;
+  border-radius: 6px;
+  background-color: $white;
+  .s-scroll {
+    .s-scroll-inner {
+      height: 100%;
+    }
+    .os-scrollbar.os-scrollbar-vertical {
+      right: 4px;
+    }
+  }
+  .contenteditable {
+    min-height: 100%;
+    padding: 11px 11px 11px 15px;
+    .error {
+      color: $status-error;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &.focus {
+    border-color: $primary;
+    .contenteditable {
+      &[contenteditable="true"]:empty:before {
+        color: transparent;
+      }
+    }
+  }
+  .contenteditable {
+    &[contenteditable="true"]:empty:before {
+      content: attr(placeholder);
+      color: $g04;
+      cursor: text;
+    }
+  }
+}

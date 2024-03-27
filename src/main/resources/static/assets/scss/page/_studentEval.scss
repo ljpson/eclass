@@ -1,0 +1,74 @@
+._studentEval {
+  @include flexColumn;
+  width: 100%;
+  header {
+    @include flexRow;
+    justify-content: space-between;
+    padding: 17px 30px;
+    background-color: $white;
+    h1 {
+      a {
+        display: block;
+        width: 165px;
+        height: 30px;
+        margin-left: 4px;
+        background-image: url("../images/image/aside_logo.svg");
+      }
+    }
+    .btn-wrap {
+      @include flexRow;
+      gap: 20px;
+      button {
+        padding: 6px 4px;
+        color: $g06;
+        @include font-body-1;
+        i {
+          margin-right: 8px;
+          background-color: $g06;
+        }
+      }
+    }
+  }
+  main {
+    flex: 1;
+    min-height: 0;
+    .container {
+      .container-inner {
+        max-width: 1820px;
+      }
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    main {
+      .container {
+        min-width: 1280px;
+        padding: 24px 24px 100px 24px;
+      }
+    }
+  }
+  ._evalData {
+    .card-item-wrap {
+      grid-template-columns: repeat(auto-fill, 290px);
+      .card-item {
+        .card {
+          width: 290px;
+        }
+      }
+      &.type-sentence {
+        .card-item {
+          .card {
+            width: 100%;
+          }
+        }
+      }
+      &.type-all {
+        grid-template-columns: repeat(auto-fill, 596px);
+      }
+    }
+  }
+  ._classEval {
+    .linkBox-list-wrap {
+      padding: 0;
+    }
+  }
+}

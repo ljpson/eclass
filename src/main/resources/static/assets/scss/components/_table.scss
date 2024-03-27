@@ -1,0 +1,541 @@
+// table common
+table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  .text-left {
+    text-align: left;
+  }
+
+  thead {
+    tr {
+      th {
+        height: 36px;
+        position: relative;
+        @include font-body-2(600);
+        &:first-child.text-left {
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        position: relative;
+        font-weight: 600;
+        color: $g07;
+        &:first-child.text-left {
+          padding-left: 16px;
+        }
+        &.weight-normal {
+          font-weight: 400;
+          @include font-body-2;
+        }
+      }
+    }
+  }
+}
+
+// 공통 테이블
+.common-table-wrap {
+  padding: 0 16px 12px;
+  table {
+    thead {
+      tr {
+        th {
+          height: 36px;
+          background-color: $g02;
+          color: $g07;
+          @include font-body-2(600);
+          &:first-child {
+            border-radius: 4px 0 0 4px;
+          }
+          &:last-child {
+            border-radius: 0 4px 4px 0;
+          }
+          .th-warning {
+            display: inline-block;
+            position: relative;
+            margin: -2px 0 0 2px;
+            vertical-align: middle;
+            i {
+              width: 20px;
+              height: 20px;
+              background-color: $status-error;
+            }
+            .tooltip {
+              bottom: 26px;
+            }
+          }
+          .th-sorting {
+            color: $g07;
+            &::after {
+              content: "";
+              display: block;
+              margin-left: 2px;
+              @include svg(arrow_updown, $black);
+              width: 16px;
+              height: 16px;
+            }
+            &.sorting-desc {
+              &::after {
+                @include svg(arrow_class, $primary);
+              }
+            }
+            &.sorting-asc {
+              &::after {
+                @include svg(arrow_class, $primary);
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        position: relative;
+        & + tr {
+          border-top: 1px solid $g02;
+        }
+        td {
+          height: 64px;
+          .checkbox {
+            margin-left: 10px;
+          }
+          .input-text {
+            margin-right: 20px;
+          }
+          .work-btn-wrap {
+            @include flexRow;
+            justify-content: center;
+            gap: 14px;
+            button {
+              width: 30px;
+              height: 30px;
+              @include btn-secondary;
+              border-radius: 50%;
+              &.btn-edit-save {
+                width: 56px;
+                border-radius: 8px;
+              }
+              i {
+                width: 20px;
+                height: 20px;
+              }
+              &:disabled {
+                i {
+                  background-color: $white;
+                }
+              }
+            }
+            .btn-dropdown {
+              .dropdown-list {
+                width: 130px;
+                top: 32px;
+                right: 0;
+                font-weight: 400;
+              }
+            }
+          }
+          .eval-status {
+            &.status-submit {
+              color: $status-error;
+            }
+            &.status-notsubmit {
+              color: $g07;
+            }
+            &.status-rejected {
+              color: $black;
+            }
+            &.status-nottest {
+              color: $status-error;
+            }
+            &.status-complete {
+            }
+            &.status-ing {
+            }
+          }
+          .eval-progress-wrap {
+            .eval-progress-bar {
+              @include flexRow;
+              justify-content: center;
+              flex-wrap: wrap;
+              .progress-bar {
+                width: 40px;
+                height: 6px;
+                overflow: hidden;
+                border-radius: 100px;
+                background-color: #dbdce8;
+                margin-right: 6px;
+                .bar {
+                  height: 100%;
+                  border-radius: 100px;
+                }
+              }
+              .progress-percent {
+                width: 34px;
+                @include flexRow(baseline);
+                justify-content: center;
+                em {
+                  @include font-body-2;
+                }
+                span {
+                  @include font-caption-2;
+                }
+              }
+              &.score-low {
+                .progress-bar {
+                  .bar {
+                    background-color: $status-error;
+                  }
+                }
+                .progress-percent {
+                  color: $status-error;
+                }
+              }
+              &.score-mid {
+                .progress-bar {
+                  .bar {
+                    background-color: $yellow;
+                  }
+                }
+                .progress-percent {
+                  color: $yellow;
+                }
+              }
+              &.score-high {
+                .progress-bar {
+                  .bar {
+                    max-width: 100%;
+                    background-color: $green;
+                  }
+                }
+                .progress-percent {
+                  color: $green;
+                }
+              }
+            }
+            .eval-progress-noData {
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background-color: $g03;
+              margin: auto;
+            }
+          }
+          .teacher-name {
+            font-size: 0;
+            span {
+              @include font-body-1;
+              display: inline-block;
+              vertical-align: top;
+            }
+            button {
+              margin: -2px 0 0 4px;
+              i {
+                background-color: $black;
+              }
+            }
+          }
+          .student-name {
+            span {
+              display: inline-block;
+              width: 24px;
+              margin-right: 4px;
+              color: $g06;
+            }
+          }
+          .eval-progress-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin: auto;
+            &.score-low {
+              background-color: $status-error;
+            }
+            &.score-mid {
+              background-color: $yellow;
+            }
+            &.score-high {
+              background-color: $green;
+            }
+          }
+          .nodata-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $g03;
+            margin: auto;
+          }
+          .class-name {
+            @include flexRow;
+            span {
+              @include ell($line: 2);
+            }
+            .share-badge {
+              flex: none;
+              margin-left: 8px;
+              padding: 0 6px;
+              color: $white;
+              background-color: #7f93ba;
+              border-radius: 4px;
+              @include font-body-2;
+            }
+          }
+          .report-eval-name {
+            @include ell($line: 2);
+          }
+          .complete-percent-wrap {
+            .complete-percent {
+              @include flexRow(flex-end);
+              justify-content: center;
+              span {
+                @include font-caption-1;
+              }
+            }
+            .percent-info {
+              @include font-caption-1;
+              font-weight: 400;
+            }
+          }
+          .submit-date {
+            &.overdue-date {
+              span {
+                color: $status-error;
+              }
+              em {
+                display: block;
+                color: $status-error;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        &.tr-complete {
+          background-color: $surface-read-finished;
+        }
+      }
+    }
+  }
+}
+
+// 평가 항목 테이블
+.eval-table-wrap {
+  .table-wrap {
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid $g02;
+    table {
+      caption {
+        padding: 12px 24px;
+        text-align: left;
+        @include font-body-2(600);
+        background-color: $g01;
+        border-bottom: 1px solid $white;
+      }
+      thead {
+        background-color: #f6f7fc;
+        border-bottom: 1px solid $white;
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid $g02;
+          &:last-child {
+            border-bottom: none;
+          }
+          td {
+            height: 44px;
+            @include font-body-2;
+            .keyword-desc-wrap {
+              padding: 12px 16px;
+              .btn-view-detail {
+                width: 138px;
+                height: 36px;
+                @include btn-outline-primary;
+              }
+              .desc-text {
+                text-align: left;
+                font-weight: normal;
+                display: none;
+              }
+              &.on {
+                .btn-view-detail {
+                  display: none;
+                }
+                .desc-text {
+                  display: block;
+                }
+              }
+            }
+            &.text-left {
+              padding: 12px 16px;
+            }
+          }
+          &.tr-title {
+            border-bottom: none;
+            &:first-child {
+              td {
+                &:first-child {
+                  border-top: none;
+                }
+              }
+            }
+            td {
+              height: 34px;
+              padding-left: 24px;
+              background-color: $g01;
+              border-radius: 4px;
+              border-radius: 0;
+              &:first-child {
+                padding: 0;
+                border-right: 1px solid $white;
+                border-top: 1px solid $white;
+              }
+            }
+          }
+          &.tr-gpt-select {
+            td {
+              color: $status-error;
+            }
+          }
+          &.tr-total-score {
+            td {
+              height: 44px;
+              padding: 0;
+              @include font-title-3(600);
+              background-color: $g06;
+              color: $white;
+              &:first-child {
+                padding-left: 26px;
+              }
+              &.score {
+                @include font-body-1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.type-score {
+    table {
+      tbody {
+        tr {
+          border-bottom: none;
+          &.tr-title {
+            td {
+              background-color: $g02;
+              &:first-child {
+                padding: 12px 24px;
+                border-right: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .criteria_table {
+    // 내용
+    tr {
+      & + tr {
+        .criteria_cat {
+          border-top: 1px solid $white;
+        }
+        .criteria_grade {
+          &.criteria_grade_bg {
+            border-top: 1px solid $white;
+          }
+        }
+      }
+      &.criteria_header {
+        background-color: #f6f7fc;
+        border-bottom: 1px solid $white;
+        .criteria_header_td {
+          height: 36px;
+          font-weight: 600;
+          color: $black;
+        }
+      }
+      &:last-child {
+        .criteria_cat_desc {
+          border-bottom: none;
+          background-color: $white;
+          text-align: center;
+        }
+      }
+      td {
+        font-weight: normal;
+        &.criteria_cat {
+          background-color: $g01;
+          font-weight: 600;
+        }
+        &.criteria_cat_desc {
+          padding: 12px 24px;
+          background-color: $g01;
+          border-left: 1px solid $white;
+          border-bottom: 1px solid $white;
+          text-align: left;
+        }
+        &.criteria_grade {
+          &.criteria_grade_bg {
+            background-color: $g01;
+          }
+        }
+        &.criteria_grade_desc {
+          padding: 12px 16px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// ai 테이블
+.ai-score-table-wrap {
+  .table-wrap {
+    border-top: 1px solid $white;
+    table {
+      tbody {
+        tr {
+          td {
+            height: 44px;
+            @include font-body-2;
+            &.text-left {
+              padding: 12px 16px;
+            }
+          }
+          &.tr-title {
+            border-top: 1px solid $g02;
+            td {
+              padding-left: 24px;
+              background-color: $g01;
+              text-align: left;
+            }
+            &:first-child {
+              border-top: none;
+            }
+          }
+          &.tr-total-score {
+            border-top: 1px solid $g02;
+            td {
+              height: 44px;
+              padding: 0;
+              @include font-title-3(600);
+              background-color: $g06;
+              color: $white;
+              &:first-child {
+                padding-left: 26px;
+              }
+              &.score {
+                @include font-body-1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

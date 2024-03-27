@@ -1,0 +1,207 @@
+.aside-menu {
+  @include flexColumn;
+  width: 300px;
+  padding: 30px 20px;
+  border-right: 1px solid $g02;
+  background-color: $white;
+  @include font-body-1;
+  .menu-top {
+    padding: 0 4px;
+    h1 {
+      margin-bottom: 30px;
+      a {
+        display: block;
+        width: 165px;
+        height: 30px;
+        margin-left: 4px;
+        background-image: url("../images/image/aside_logo.svg");
+      }
+    }
+    .hello {
+      position: relative;
+      padding: 4px 38px 4px 0;
+      p {
+        font-weight: 600;
+      }
+      .btn-notice {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        i {
+          background-color: $black;
+        }
+        &.new-notice {
+          &::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-image: url("../images/icon/new_notice.svg");
+          }
+        }
+      }
+    }
+    .btn-wrap {
+      margin: 14px 0 10px;
+      button {
+        width: 100%;
+        height: 44px;
+        border-radius: 8px;
+        &.btn-url-forward {
+          @include btn-secondary;
+        }
+        &.btn-class-make {
+          @include btn-primary;
+        }
+        & + button {
+          margin-top: 8px;
+        }
+        i {
+          width: 20px;
+          height: 20px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  .menu-mid {
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+    margin-top: 14px;
+    border-top: 1px solid $g02;
+    .s-scroll {
+      margin: 0 -20px;
+      padding: 14px 20px;
+    }
+    ul {
+      li {
+        padding: 6px 0;
+        .menu-classEval & {
+          padding: 0;
+        }
+        a,
+        button {
+          @include flexRow;
+          justify-content: flex-start;
+          position: relative;
+          width: 100%;
+          padding: 10px 4px;
+          border-radius: 8px;
+          color: $g06;
+          &::before {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            background-color: $g06 !important;
+          }
+          &.menu-home {
+            &::before {
+              @include svg(home);
+            }
+          }
+          &.menu-evalData {
+            &::before {
+              @include svg(page);
+            }
+          }
+          &.menu-classEval {
+            &::before {
+              @include svg(assessment);
+            }
+          }
+          &.menu-report {
+            &::before {
+              @include svg(comprehensive_report);
+            }
+          }
+          &.menu-management {
+            &::before {
+              @include svg(student);
+            }
+          }
+          &.on,
+          &.open {
+            color: $primary;
+            font-weight: 600;
+            &::before {
+              background-color: $primary !important;
+            }
+          }
+        }
+        a {
+          &.on {
+            background-color: #f0edf7;
+          }
+        }
+        button {
+          font-weight: 400;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 4px;
+            width: 24px;
+            height: 24px;
+            @include svg(arrow_down, $g06);
+            transform: translateY(-50%);
+          }
+          &.open {
+            padding: 10px 4px;
+            &::after {
+              @include svg(arrow_up, $primary);
+            }
+            & + .sub-menu {
+              display: block;
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+    }
+    .sub-menu {
+      display: none;
+      ul {
+        li {
+          padding: 0;
+          a {
+            padding: 7px 8px 7px 36px;
+            &::before {
+              content: none;
+            }
+          }
+          & + li {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+  }
+  .menu-footer {
+    .btn-logout {
+      &::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        @include svg(logout, $g06);
+      }
+      padding: 6px 4px;
+      color: $g06;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .aside-menu {
+    width: 240px;
+  }
+}

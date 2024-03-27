@@ -1,0 +1,14 @@
+._mobile {
+  // textarea
+  .input-text {
+    .textarea {
+      min-height: 84px;
+    }
+  }
+  .contenteditable-wrap {
+    .contenteditable {
+      min-height: 84px;
+      @include font-body-2;
+    }
+  }
+}

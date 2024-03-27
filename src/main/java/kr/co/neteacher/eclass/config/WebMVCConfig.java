@@ -1,5 +1,6 @@
 package kr.co.neteacher.eclass.config;
 
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -8,8 +9,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.core.Ordered;
+import org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver;
+import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
@@ -20,9 +23,11 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import java.util.List;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan({"neTeacher.eclass"})
+@ComponentScan({"kr.co.neteacher.eclass"})
 /**
  * Java configuration file that is used for Spring MVC and Thymeleaf
  * configurations
@@ -30,6 +35,44 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
+
+
+    @Bean
+    public InterceptorConfig interceptorConfig() {
+        return new InterceptorConfig();
+    }
+
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(deviceResolverHandlerInterceptor());
+        registry.addInterceptor(interceptorConfig())
+                .excludePathPatterns("/api/**")
+                .excludePathPatterns("/static/**")
+                .excludePathPatterns("/assets/**")
+                .excludePathPatterns("/file/**")
+                .excludePathPatterns("/images/**")
+                .excludePathPatterns("/class-images/**")
+                .excludePathPatterns("/js/**")
+                .excludePathPatterns("/error/**")
+                .excludePathPatterns("/actuator/**")
+                .addPathPatterns("/**");
+    }
+
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        argumentResolvers.add(deviceHandlerMethodArgumentResolver());
+    }
+
+    @Bean
+    public DeviceResolverHandlerInterceptor deviceResolverHandlerInterceptor() {
+        return new DeviceResolverHandlerInterceptor();
+    }
+
+    @Bean
+    public DeviceHandlerMethodArgumentResolver deviceHandlerMethodArgumentResolver() {
+        return new DeviceHandlerMethodArgumentResolver();
+    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
@@ -58,7 +101,7 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ISpringTemplateEngine templateEngine(ITemplateResolver templateResolver) {
         SpringTemplateEngine engine = new SpringTemplateEngine();
-//        engine.addDialect(new LayoutDialect());
+        engine.addDialect(new LayoutDialect());
         engine.addDialect(new Java8TimeDialect());
         engine.setTemplateResolver(templateResolver);
         engine.setTemplateEngineMessageSource(messageSource());
@@ -100,20 +143,22 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
         return messageSource;
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("/views/login");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/login").setViewName("/views/login");
+//        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+//    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**",
+                        "/assets/**",
                         "/css/**",
                         "/js/**",
                         "/images/**",
                         "/fonts/**")
                 .addResourceLocations("classpath:/static/",
+                        "classpath:/static/assets/",
                         "classpath:/static/css/",
                         "classpath:/static/js/",
                         "classpath:/static/images/",

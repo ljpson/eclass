@@ -1,0 +1,275 @@
+._report {
+  .report-date-duration-wrap {
+    @include flexRow;
+    gap: 24px;
+    margin-top: 18px;
+    .date-duration {
+      @include flexRow;
+      .wave {
+        width: 9px;
+        margin: 0 4px;
+        text-align: center;
+      }
+      .input-text {
+        width: 138px;
+      }
+    }
+    .desc {
+      color: $g06;
+      @include font-body-2;
+    }
+  }
+  .report-detail-box {
+    .box-top {
+      padding-top: 36px;
+      text-align: center;
+      .eval-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        .selectBox {
+          min-width: 200px;
+        }
+        .count {
+          padding: 6px 0;
+          @include font-title-2;
+          color: $g07;
+          span {
+            color: $blue;
+          }
+        }
+      }
+      .tab-nav-line {
+        margin-top: 24px;
+      }
+    }
+    .box-btm {
+      @include flexRow(initial);
+      flex-wrap: wrap;
+      padding: 40px;
+      .chart-box-wrap {
+        flex: 1;
+        min-width: 668px;
+        padding: 23px 53px;
+        border-radius: 8px;
+        border: 1px solid $g02;
+        .chart-title {
+          text-align: center;
+          @include font-title-2;
+          color: $g07;
+        }
+        & + .chart-box-wrap {
+          margin-left: 24px;
+        }
+        .no-chart {
+          display: flex;
+          height: 220px;
+          margin-top: 16px;
+          p {
+            margin: auto;
+            @include font-body-2;
+            color: $g05;
+          }
+        }
+        .chart-closedEval-number {
+          @include flexRow;
+          justify-content: center;
+          margin-top: 16px;
+          padding: 10px 0;
+          .total-eval-cont {
+            width: 200px;
+            position: relative;
+            margin-right: 48px;
+            canvas {
+              width: 200px;
+              height: 200px;
+            }
+            .total-number {
+              width: 100%;
+              text-align: center;
+              position: absolute;
+              top: 66px;
+              @include font-heading-2;
+              color: $g07;
+              strong {
+                @include font-heading-1;
+                color: $black;
+              }
+            }
+          }
+          .chart-detail-wrap {
+            .detail-item {
+              @include flexRow;
+              gap: 8px;
+              span {
+                width: 30px;
+                @include font-body-2;
+                font-weight: 600;
+                color: $g07;
+              }
+              & + .detail-item {
+                margin-top: 20px;
+              }
+            }
+          }
+        }
+        .chart-doubleCircle {
+          position: relative;
+          width: 200px;
+          padding: 20px 0;
+          margin: 16px auto auto;
+          .circle-wrap {
+            position: relative;
+            transform: rotate(-90deg);
+            .circle-out {
+              svg {
+                .cicle-progress {
+                  stroke-dasharray: 597;
+                }
+              }
+            }
+            .circle-in {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              svg {
+                circle {
+                  stroke-dasharray: 535;
+                }
+              }
+            }
+          }
+          .detail-wrap {
+            position: absolute;
+            top: 86px;
+            width: 100%;
+            text-align: center;
+            .detail-top {
+              @include font-heading-2;
+              color: $g07;
+              strong {
+                @include font-heading-1;
+                color: $black;
+              }
+            }
+            .detail-btm {
+              @include font-caption-1;
+              color: $g06;
+            }
+          }
+        }
+        .chart-compareBar {
+          width: 600px;
+          margin: 0 auto;
+          .chart-info-wrap {
+            @include flexRow;
+            height: 36px;
+            justify-content: space-between;
+            .chart-index {
+              width: 318px;
+              @include flexRow;
+              gap: 16px;
+              div {
+                @include flexRow;
+                @include font-caption-1;
+                color: $g06;
+                max-width: 50%;
+                span {
+                  @include ell;
+                  flex: 1;
+                }
+                &::before {
+                  content: "";
+                  display: block;
+                  width: 10px;
+                  height: 10px;
+                  margin-right: 4px;
+                  border-radius: 3px;
+                }
+                &.index-this-class {
+                  &::before {
+                    display: block;
+                    background-color: #536ceb;
+                  }
+                }
+                &.index-all-class {
+                  &::before {
+                    background-color: #cdd7f8;
+                  }
+                }
+              }
+            }
+            .btn-dropdown {
+              .btn-compare-setting {
+                width: 88px;
+                height: 36px;
+                @include btn-outline-primary;
+              }
+              .dropdown-list {
+                width: 190px;
+                > ul {
+                  > li {
+                    padding: 0;
+                  }
+                }
+                .radio {
+                  label {
+                    width: 100%;
+                    padding: 6px 16px;
+                  }
+                }
+                .checkbox-wrap {
+                  padding-left: 38px;
+                  .check-warning {
+                    @include font-caption-1;
+                    color: $status-error;
+                  }
+                  .s-scroll {
+                    max-height: 160px;
+                  }
+                  .checkbox {
+                    label {
+                      padding: 6px 6px 6px 0;
+                      i {
+                        width: 16px;
+                        height: 16px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .chart-area {
+            height: 220px;
+            canvas {
+              width: 100%;
+              height: 100%;
+              vertical-align: top;
+            }
+          }
+          &.type-average {
+            margin-top: 16px;
+          }
+        }
+      }
+      .table-box-wrap {
+        flex: none;
+        width: 100%;
+        .table-box-title {
+          font-weight: 600;
+          margin: 36px 0 16px 0;
+          & + .common-table-wrap {
+            margin-top: 0;
+          }
+        }
+        & > .common-table-wrap {
+          margin-top: 56px;
+        }
+        .common-table-wrap {
+          padding: 0 0 12px;
+        }
+      }
+    }
+  }
+}

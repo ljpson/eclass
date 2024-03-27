@@ -1,0 +1,299 @@
+._home {
+  .class-evalStatus-wrap {
+    margin-bottom: 64px;
+    .main-title-wrap {
+      .title-left {
+        .main-title {
+          h2 {
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+    .class-card-wrap {
+      @include flexRow;
+      flex-wrap: wrap;
+      gap: 24px;
+      .class-card {
+        @include flexColumn;
+        width: calc(100% / 3 - 16px);
+        height: 320px;
+        padding: 12px 0 24px 0;
+        .class-profile-wrap {
+          padding: 0 20px;
+          a {
+            @include flexRow;
+            padding: 5px 0;
+            .class-name {
+              @include flexRow;
+              flex: 1;
+              width: 100%;
+              min-width: 0;
+              justify-content: flex-start;
+              margin-left: 8px;
+              span {
+                @include font-title-1;
+                @include ell;
+              }
+              i {
+                width: 30px;
+                height: 30px;
+                background-color: $black;
+              }
+            }
+          }
+        }
+        .publish-list-box {
+          flex: 1;
+          min-height: 0;
+          margin-top: 12px;
+          overflow: hidden;
+          .noData {
+            padding-bottom: 20px;
+            .img {
+              &.no-eval {
+                width: 36px;
+                height: 36px;
+                @include svg(class_1, $g03);
+              }
+              & + p {
+                margin-top: 8px;
+              }
+            }
+          }
+          .publish-item-wrap {
+            height: 100%;
+            padding: 0 20px;
+            .publish-item {
+              a {
+                @include flexRow;
+                padding: 14px 15px;
+                border-radius: 6px;
+                border: 1px solid $g02;
+                &:hover {
+                  background-color: #f6f7f8;
+                }
+                .publish-title-wrap {
+                  flex: 1;
+                  min-width: 0;
+                  .publish-title {
+                    @include font-title-2;
+                    @include ell;
+                  }
+                  .publish-info {
+                    @include flexRow;
+                    span {
+                      @include font-body-2;
+                      color: $g06;
+                      strong {
+                        font-weight: 600;
+                      }
+                      & + span {
+                        margin-left: 4px;
+                      }
+                    }
+                  }
+                }
+                .publish-status {
+                  position: relative;
+                  width: 48px;
+                  margin-left: 8px;
+                  .circle {
+                    position: relative;
+                    transform: rotate(-90deg);
+                    .cicle-progress {
+                      stroke-dasharray: 142;
+                      &.status-ongoing {
+                        stroke: $status-ongoing;
+                      }
+                      &.status-closed {
+                        stroke: $status-closed;
+                      }
+                    }
+                  }
+                  .status-desc {
+                    position: absolute;
+                    top: 15px;
+                    width: 100%;
+                    text-align: center;
+                    .desc-student {
+                      em {
+                        display: block;
+                        @include font-caption-1(600);
+                        color: $status-standby;
+                      }
+                      span {
+                        display: block;
+                        @include font-caption-2;
+                        color: $g06;
+                        strong {
+                          @include font-body-2(600);
+                        }
+                      }
+                      &.status-ongoing {
+                        span {
+                          strong {
+                            color: $status-ongoing;
+                          }
+                        }
+                      }
+                      &.status-closed {
+                        span {
+                          strong {
+                            color: $status-closed;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              & + .publish-item {
+                margin-top: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1600px) {
+      .class-card-wrap {
+        .class-card {
+          width: calc(50% - 12px);
+        }
+      }
+    }
+    .btn-wrap {
+      width: 100%;
+      text-align: center;
+      .btn-view-all {
+        @include btn-outline-primary;
+        width: 138px;
+        height: 44px;
+        margin-top: 30px;
+        font-weight: 600;
+      }
+    }
+  }
+  .textbook-evalData-wrap {
+    .title-wrap {
+      @include flexRow;
+      margin-bottom: 30px;
+      gap: 16px;
+      .title {
+        @include font-title-1;
+        padding: 7px 0;
+      }
+      .title-info {
+        color: $g06;
+      }
+      .btn-textbook-setting {
+        width: 30px;
+        height: 30px;
+        @include btn-circle-white;
+        i {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .evalData-box {
+      padding: 36px 50px 50px;
+      border-radius: 12px;
+      background-color: $g02;
+      & + .evalData-box {
+        margin-top: 30px;
+      }
+      .evalData-cont {
+        @include flexRow(flex-start);
+        .textbook-detail-wrap {
+          width: 192px;
+          text-align: center;
+          margin-right: 30px;
+          .thumbnail-img {
+            height: 256px;
+            img {
+              height: 100%;
+              object-fit: cover;
+              border-radius: 6px;
+              border: 1px solid $g02;
+            }
+          }
+          .info-wrap {
+            @include flexColumn;
+            justify-content: center;
+            padding-top: 8px;
+            gap: 2px;
+            .info-1 {
+              @include flexRow;
+              justify-content: center;
+              color: $g06;
+              .bar {
+                @include bar;
+              }
+            }
+            .info-2 {
+              font-weight: 600;
+            }
+          }
+          .btn-view-detail {
+            margin-top: 12px;
+            width: 138px;
+            height: 44px;
+            border-radius: 8px;
+            font-weight: 600;
+            @include btn-outline-primary;
+            i {
+              width: 20px;
+              height: 20px;
+              background-color: $primary;
+              margin-left: 4px;
+            }
+          }
+        }
+        .lesson-evalData-wrap {
+          flex: 1;
+          min-width: 0;
+          .lesson-control-btn-wrap {
+            @include flexRow(flex-start);
+            justify-content: center;
+            button {
+              width: 24px;
+              height: 24px;
+              @include btn-circle-white;
+              i {
+                width: 20px;
+                height: 20px;
+              }
+            }
+            .lesson-title {
+              width: 648px;
+              margin: 0 8px;
+              text-align: center;
+              @include font-title-3;
+              font-weight: 600;
+            }
+          }
+          .linkBox-list-wrap {
+            margin-top: 12px;
+            padding: 0;
+            ul {
+              li {
+                .list-item {
+                  padding: 0 24px;
+                  .learningType-badge {
+                    width: 30px;
+                    height: 30px;
+                  }
+                }
+                & + li {
+                  margin-top: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

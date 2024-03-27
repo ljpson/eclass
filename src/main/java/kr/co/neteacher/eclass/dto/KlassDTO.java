@@ -29,11 +29,10 @@ public class KlassDTO {
 
     // klass
     private Long klassId;                //아이디
-    private Long bookId;            //교과서아이디
     private GradeType gradeType;    //학년
     private String klassName;       //학급명
     private String password;        //학생초기비밀번호
-    private Integer studentLimitNum; //학생수제한
+    private Integer studentAmount;  //학생수
 
     //teacherKlass
     private TeacherType teacherType;    //교사유형

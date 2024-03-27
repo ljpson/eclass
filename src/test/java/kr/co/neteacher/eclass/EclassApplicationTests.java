@@ -31,7 +31,6 @@ class EclassApplicationTests {
 //
 //		// 학급 엔티티를 생성합니다.
 //		Klass class$ = new Klass()
-//				.setBookId(1L)
 //				.setClassName("1학년 4반")
 //				.setCreateBy(1L)
 //				.setCreateDate(new Date());

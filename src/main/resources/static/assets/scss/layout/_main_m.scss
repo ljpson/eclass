@@ -1,0 +1,138 @@
+._mobile {
+  @include flexColumn;
+  width: 100%;
+  .mobile-header {
+    height: 52px;
+    padding: 15px 16px;
+    background-color: $white;
+    z-index: 5;
+    .logo {
+      width: 132px;
+      height: 24px;
+      padding: 4px 0;
+      background-image: url("../images/image/m_header_logo.svg");
+    }
+    .page-title {
+      text-align: center;
+      font-weight: 600;
+    }
+    button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: $white;
+      i {
+        width: 24px;
+        height: 24px;
+        background-color: $black;
+      }
+    }
+    .btn-left-wrap {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .btn-right-wrap {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      .btn-dropdown {
+        &.active {
+          button {
+            background-color: $black-alpha-10;
+          }
+        }
+        .dropdown-list {
+          width: 124px;
+        }
+      }
+    }
+  }
+
+  // main
+  main {
+    @include flexColumn;
+    flex: 1;
+    min-height: 0;
+    .m-container {
+      flex: 1;
+      min-height: 0;
+      padding: 12px 16px 50px;
+      overflow-y: auto;
+      &.bg-white {
+        background-color: $white;
+        .main-title-wrap {
+          padding-top: 0;
+        }
+      }
+    }
+    .m-footer {
+      background-color: #fff;
+      padding: 15px 16px 16px;
+      border-top: 1px solid $g02;
+      .m-footer-inner {
+        @include flexRow;
+        justify-content: space-between;
+        .submit-status {
+          @include flexRow;
+          color: $g06;
+          @include font-caption-1;
+          .save {
+            font-weight: 600;
+            &.save-complete {
+              color: $primary;
+            }
+          }
+          .date {
+            margin-left: 4px;
+          }
+        }
+        .btn-wrap {
+          @include flexRow;
+          button {
+            width: 100%;
+            min-width: 138px;
+            height: 36px;
+            @include font-body-2;
+            &.btn-fill {
+              @include btn-primary;
+            }
+            &.btn-outline {
+              @include btn-outline-primary;
+            }
+            & + button {
+              margin-left: 8px;
+            }
+          }
+          &:only-child {
+            flex: 1;
+            min-width: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // bar-row
+  .bar-row {
+    height: 1px;
+    background-color: $g03;
+    &.space-16 {
+      margin: 16px 0;
+    }
+    &.space-18 {
+      margin: 18px 0;
+    }
+    &.space-36 {
+      margin: 36px 0;
+    }
+  }
+
+  // scroll-horizontal-wrap
+  .scroll-horizontal-wrap {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

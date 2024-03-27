@@ -1,0 +1,24 @@
+._mobile {
+  // tab nav line
+  .tab-nav-line {
+    &.type-scroll {
+      margin: 0 -16px;
+      .tab-nav-inner {
+        padding: 0 16px;
+        overflow-y: hidden;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        ul {
+          display: inline-flex;
+          min-width: 100%;
+          li {
+            flex: none;
+            width: 68px;
+          }
+        }
+      }
+    }
+  }
+}

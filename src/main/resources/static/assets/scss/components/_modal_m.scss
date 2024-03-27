@@ -1,0 +1,227 @@
+._mobile {
+  // modal common
+  .modal {
+    padding: 16px;
+    .modal-inner {
+      min-width: auto;
+      .modal-box {
+        max-width: 328px;
+        .btn-modal-close {
+          top: 10px;
+          right: 10px;
+        }
+        .modal-cont-wrap {
+          padding: 24px 20px 0;
+          .modal-title-wrap {
+            margin-bottom: 16px;
+            .modal-title {
+              @include font-body-1(600);
+            }
+          }
+        }
+        .modal-footer {
+          padding: 30px 20px 20px 20px;
+          .btn-wrap {
+            button {
+              width: 140px;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // modal-confirm
+  .modal-confirm {
+    .text-wrap {
+      min-height: 74px;
+      margin-bottom: 0;
+      p {
+        margin: initial;
+        text-align: left;
+        word-break: keep-all;
+      }
+    }
+  }
+
+  // modal-reportCard
+  .modal-reportCard {
+    .reportCard-detail-wrap {
+      .tab-cont {
+        .selectBox {
+          margin-bottom: 24px;
+        }
+      }
+      .detail-item-wrap {
+        .detail-item {
+          .item-title {
+            @include font-body-1;
+            color: $black;
+          }
+          .item-cont {
+            margin-top: 12px;
+            .ai-grading-wrap {
+              .ai-item {
+                .ai-item-title {
+                  padding: 12px 16px;
+                }
+                .ai-item-cont {
+                  > p {
+                    padding: 11px 15px;
+                  }
+                }
+                &:last-child {
+                  .ai-item-title {
+                    padding: 8px 24px;
+                  }
+                }
+              }
+            }
+            .ai-sentence-wrap {
+              .correction-count-wrap {
+                @include flexColumn;
+                align-items: flex-start;
+                .total-count {
+                  margin-right: 0;
+                  margin-bottom: 8px;
+                }
+                .correction-item-wrap {
+                  gap: 8px;
+                  .correction-item {
+                    .title {
+                      @include font-caption-1;
+                    }
+                    .count {
+                      span {
+                        @include font-caption-1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          & + .detail-item {
+            margin-top: 24px;
+          }
+        }
+      }
+    }
+    .chart-index,
+    .summary-date {
+      position: static;
+      justify-content: flex-end;
+      margin: 8px 0 16px;
+    }
+    .learning-summary-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 140px);
+      justify-content: center;
+      gap: 28px;
+    }
+    .compare-graph-area {
+      min-width: 600px;
+    }
+    .eval-summary-wrap {
+      height: auto;
+      padding: 23px 0;
+      .summary-item {
+        flex: 1 0 calc(100% / 3 - 1px);
+      }
+    }
+    .question-cont-wrap {
+      li {
+        width: auto;
+      }
+    }
+    .feedback-cont-wrap {
+      .feedback-box {
+        margin: 0;
+        padding: 20px 19px 24px 19px;
+        .feedback-box-inner {
+          display: block;
+          width: 100%;
+          .text-wrap {
+            margin-top: 8px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // modal-add-url
+  .modal-add-url {
+    .modal-box {
+      height: auto;
+    }
+  }
+
+  // modal-imageView
+  .modal-imageView {
+    padding: 0;
+    .modal-top-wrap {
+      padding: 10px 10px 10px 16px;
+      .img-name {
+        @include font-body-2(600);
+      }
+      .btn-wrap {
+        gap: 8px;
+        button {
+          width: 32px;
+          height: 32px;
+          i {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+    .img-wrap {
+      padding: 51px 16px 0;
+    }
+  }
+
+  // modal-changePassword
+  .modal-changePassword {
+    .title-wrap {
+      margin-bottom: 24px;
+      .title {
+        @include font-title-2;
+      }
+    }
+  }
+
+  // modal-loading
+  .modal-loading {
+    .modal-inner {
+      .modal-box {
+        height: 180px;
+        .modal-cont-wrap {
+          padding: 36px;
+          .loading-cont-wrap {
+            .img-wrap {
+              width: 64px;
+              height: 64px;
+            }
+            .loading-text {
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // modal-changePassword
+  .modal-changePassword {
+    .pw-item-wrap {
+      .pw-item {
+        input {
+          padding-left: 7px;
+        }
+      }
+    }
+  }
+}

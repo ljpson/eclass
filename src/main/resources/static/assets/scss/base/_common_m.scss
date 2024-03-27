@@ -1,0 +1,262 @@
+._mobile {
+  // main-title-wrap
+  .main-title-wrap {
+    display: block;
+    margin-bottom: 0;
+    padding-top: 10px;
+    .title-left {
+      .main-title {
+        align-items: flex-start;
+        .learningType-badge {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+        h2 {
+          padding: 0;
+          @include ell(2);
+          @include font-title-2;
+        }
+      }
+      .title-info {
+        margin-top: 4px;
+        padding-left: 0;
+        @include font-body-2;
+        .title-info-row {
+          span {
+            @include font-caption-1;
+            color: $g06;
+            &.color-blue {
+              color: $status-ongoing;
+              @include font-body-2(600);
+            }
+          }
+          & + .title-info-row {
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    .title-right {
+      margin-top: 12px;
+      @include font-body-2;
+      .btn-wrap {
+        .btn-item {
+          flex: 1;
+          min-width: 0;
+          > button,
+          .btn-dropdown > button {
+            width: 100%;
+            height: 32px;
+          }
+        }
+      }
+      .before-eval {
+        line-height: 32px;
+        text-align: center;
+      }
+    }
+    .teacher-message-wrap {
+      @include flexRow;
+      margin: 4px 0;
+      @include font-body-2;
+      p {
+        @include ell;
+        color: $g07;
+      }
+      .btn-wrap {
+        flex: none;
+        margin-left: 8px;
+        font-weight: 600;
+        text-align: center;
+        button {
+          &::before {
+            content: "더 보기";
+            display: block;
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-left: 2px;
+            @include svg(arrow_down, $black);
+          }
+        }
+      }
+      &.open {
+        display: block;
+        p {
+          white-space: initial;
+        }
+        .btn-wrap {
+          margin-top: 8px;
+          margin-left: 0;
+          button {
+            &::before {
+              content: "접기";
+            }
+            &::after {
+              @include svg(arrow_up, $black);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // tab-nav
+  .tab-nav {
+    margin-bottom: 16px;
+    .tab-nav-inner {
+      display: block;
+      ul {
+        li {
+          flex: 1;
+          min-width: 0;
+        }
+      }
+    }
+  }
+
+  // tab-nav-line
+  .tab-nav-line {
+    ul {
+      li {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  }
+
+  // check-search-wrap
+  .check-search-wrap {
+    padding: 0;
+  }
+
+  // linkBox-list-wrap
+  .linkBox-list-wrap {
+    margin-top: 8px;
+    padding: 0;
+    ul {
+      li {
+        .list-item {
+          display: block;
+          padding: 0 12px 12px;
+          &:hover {
+            background-color: $white;
+          }
+          &.readed {
+            &:hover {
+              background-color: $surface-read-finished;
+            }
+          }
+          .info-wrap {
+            a {
+              padding: 12px 0;
+            }
+            .eval-name-wrap {
+              .eval-name {
+                align-items: flex-start;
+                .learningType-badge {
+                  width: 8px;
+                  height: 8px;
+                  margin: 7px 6px 0 2px;
+                  &::before {
+                    content: none;
+                  }
+                }
+                .name-wrap {
+                  .name {
+                    @include font-body-1;
+                    @include ell(2);
+                  }
+                }
+              }
+            }
+          }
+          .btn-item-wrap {
+            width: 100%;
+            .btn-item {
+              flex: 1;
+              min-width: 0;
+              button {
+                width: 100%;
+                height: 32px;
+                @include font-body-2;
+              }
+            }
+          }
+          .before-eval-begin {
+            width: 100%;
+            line-height: 32px;
+            text-align: center;
+            font-weight: 400;
+          }
+        }
+        & + li {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  // preview-file-title-wrap
+  .preview-file-title-wrap {
+    flex-wrap: wrap;
+    padding: 0;
+    .total-count {
+      padding: 8px 0;
+    }
+    .btn-item {
+      position: static;
+      flex: none;
+      width: 100%;
+      .btn-total-file {
+        width: 100%;
+        height: 32px;
+        @include btn-outline-primary;
+        @include font-body-2;
+        &::before {
+          background-color: $primary;
+        }
+      }
+      .dropdown-list {
+        width: 100%;
+      }
+    }
+  }
+  // preview-file-cont-wrap
+  .preview-file-cont-wrap {
+    gap: 8px;
+    .file-item {
+      width: 0;
+      flex-basis: calc(50% - 4px);
+      a {
+        width: 100%;
+        padding: 8px;
+        .file-thumbnail-img {
+          height: 96px;
+        }
+        .file-info {
+          .file-name {
+            @include font-body-2;
+          }
+        }
+      }
+    }
+  }
+  // preview-file-upload-wrap
+  .preview-file-upload-wrap {
+    min-height: initial;
+    height: 116px;
+    .upload-inner {
+      @include font-body-2;
+      .btn-dropdown {
+        .btn-upload {
+          height: 32px;
+        }
+      }
+    }
+  }
+}
