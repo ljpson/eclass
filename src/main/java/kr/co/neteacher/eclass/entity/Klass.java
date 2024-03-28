@@ -1,20 +1,21 @@
 package kr.co.neteacher.eclass.entity;
 
-import kr.co.neteacher.eclass.entity.enums.GradeType;
+import kr.co.neteacher.eclass.entity.enums.BadgeType;
+import kr.co.neteacher.eclass.entity.enums.SchoolType;
 import kr.co.neteacher.eclass.entity.enums.Yn;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
- * 학급 정보
+ * 학급
  */
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,27 +25,65 @@ import java.util.Date;
 public class Klass {
 
     @Id
+    @Comment("학급 아이디")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;                //아이디
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "teacher_id")
+    @Comment("개설 선생님 정보")
+    private Teacher teacher;
 
     @Enumerated(value = EnumType.STRING)
-    private GradeType gradeType;    //학년
-
-    private String klassName;       //학급명
-    private String password;        //학생초기비밀번호
-    private Integer studentAmount;  //학생수
+    @Comment("학교 유형")
+    @Column(length = 1)
+    private SchoolType schoolType;
 
     @Enumerated(value = EnumType.STRING)
-    private Yn deleteYn;            //삭제여부
+    @Comment("배지 유형")
+    @Column(length = 11)
+    private BadgeType badgeType = BadgeType.TYPE_1;
 
-    private Long createBy;          //생성자
-    private Date createDate;        //생성일자
-    private Long updateBy;          //수정자
-    private Date updateDate;        //수정일자
+    @Comment("배지 이미지 경로")
+    @Column(length = 255)
+    private String badgeImagePath;
 
-//    @OneToMany(mappedBy = "klass$", cascade = CascadeType.ALL)
-//    private List<TeacherKlass> teacherKlasses;
+    @Comment("학년")
+    @Column(length =1)
+    private String grade;
 
+    @Comment("반")
+    @Column(length = 2)
+    private String ban;
+
+    @Comment("학급명")
+    @Column(length = 100, nullable = false)
+    private String klassName;
+
+    @Comment("학급명(별칭)")
+    @Column(length = 100)
+    private String klassNickName;
+
+    @Comment("학급 학생 수")
+    private Integer studentAmount = 0;
+
+    @Comment("삭제여부")
+    @Enumerated(value = EnumType.STRING)
+    private Yn deleteYn = Yn.N;
+
+    @Comment("생성자")
+    @Column(nullable = false, updatable = false)
+    private Long createBy;
+
+    @Comment("생성일시")
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createDate = LocalDateTime.now();;
+
+    @Comment("수정자")
+    private Long updateBy;
+
+    @Comment("수정일시")
+    private LocalDateTime updateDate;
 
 }

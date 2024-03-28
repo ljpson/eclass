@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/default_head :: defaultHead}"></head>
-<body>
-<th:block th:include="fragments/default_menu :: defaultMenu"></th:block>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:fragment="appendContents">
 레포트 메인 입니다.
 
-
-</body>
+</th:block>>
 </html>

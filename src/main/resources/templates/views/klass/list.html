@@ -1,64 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/default_head :: defaultHead}"></head>
-<body>
-<th:block th:include="fragments/default_menu :: defaultMenu"></th:block>
-학급/학생관리 메인입니다.
-<br><br>
-메뉴에는 학급목록<br>
-내용에는 학생목록이 들어갈 예정입니다.
-<br><br>
------ Controller에서 교사정보 조회 후
-세션 설정해서 model로 넘긴 값 ----- <br>
-교사아이디 : <span th:text="${teacher.id}"></span><br>
-교사이름 : <span th:text="${teacher.teacherName}"></span><br><br>
------ 학급정보 입력 -----<br>
-<form id="saveForm" onsubmit="return false;">
-    <input type="hidden" name="deleteYn" value="N"><br>
-    <input type="hidden" name="createBy" th:value="${teacher.id}"><br>
-    선생님 아이디 : <input type="text" name="teacherId" th:value="${teacher.id}"><br>
-    학급명 : <input type="text" name="klassName"><br>
-    초기비밀번호 : <input type="text" name="password"><br>
-    학급최대인원 : <input type="number" name="studentAmount"><br>
-    <button onclick="saveKlass()">저장</button>
-</form><br>
------ 검색영역 -----
-<form id="searchForm" onsubmit="return false;">
-    선생님 아이디 : <input type="text" name="teacherId" th:value="${teacher.id}">
-    학급명 : <input type="text" name="klassName">
-    <button onclick="getKlassList()">검색</button>
-</form>
-<br>
------ 리스트영역 -----
-<div>
-    <table id="listTable">
-        <colgroup>
-            <col width="5%">
-            <col>
-            <col>
-            <col>
-            <col>
-            <col>
-        </colgroup>
-        <thead>
-        <tr>
-            <th scope="col">번호</th>
-            <th scope="col">능률아이디</th>
-            <th scope="col">교사명</th>
-            <th scope="col">학급명</th>
-            <th scope="col">학급최대인원</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:fragment="appendContents">
+    학급/학생관리 메인입니다.
+    <br><br>
+    메뉴에는 학급목록<br>
+    내용에는 학생목록이 들어갈 예정입니다.
+    <br><br>
+    ----- Controller에서 교사정보 조회 후
+    세션 설정해서 model로 넘긴 값 ----- <br>
+    교사아이디 : <span th:text="${teacher.id}"></span><br>
+    교사이름 : <span th:text="${teacher.teacherName}"></span><br><br>
+    ----- 학급정보 입력 -----<br>
+    <form id="saveForm" onsubmit="return false;">
+        <input type="hidden" name="deleteYn" value="N"><br>
+        <input type="hidden" name="createBy" th:value="${teacher.id}"><br>
+        선생님 아이디 : <input type="text" name="teacherId" th:value="${teacher.id}"><br>
+        학급명 : <input type="text" name="klassName"><br>
+        초기비밀번호 : <input type="text" name="password"><br>
+        학급최대인원 : <input type="number" name="studentAmount"><br>
+        <button onclick="saveKlass()">저장</button>
+    </form><br>
+    ----- 검색영역 -----
+    <form id="searchForm" onsubmit="return false;">
+        선생님 아이디 : <input type="text" name="teacherId" th:value="${teacher.id}">
+        학급명 : <input type="text" name="klassName">
+        <button onclick="getKlassList()">검색</button>
+    </form>
+    <br>
+    ----- 리스트영역 -----
+    <div>
+        <table id="listTable">
+            <colgroup>
+                <col width="5%">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th scope="col">번호</th>
+                <th scope="col">능률아이디</th>
+                <th scope="col">교사명</th>
+                <th scope="col">학급명</th>
+                <th scope="col">학급최대인원</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
-    <!-- 목록이 없을때 -->
-    <div class="no_data" style="display:none;">
-        <div class="docu"><i class="glyphicon glyphicon-exclamation-sign"></i>목록이 존재하지 않습니다.</div>
+            </tbody>
+        </table>
+        <!-- 목록이 없을때 -->
+        <div class="no_data" style="display:none;">
+            <div class="docu"><i class="glyphicon glyphicon-exclamation-sign"></i>목록이 존재하지 않습니다.</div>
+        </div>
     </div>
-</div>
-</body>
-<script type="text/javascript" th:src="@{/js/klass/klass.js}"></script>
+    </body>
+    <script type="text/javascript" th:src="@{/js/klass/klass.js}"></script>
+</th:block>
 </html>

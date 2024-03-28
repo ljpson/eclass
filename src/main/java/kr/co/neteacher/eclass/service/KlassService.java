@@ -3,16 +3,12 @@ package kr.co.neteacher.eclass.service;
 import kr.co.neteacher.eclass.dto.KlassDTO;
 import kr.co.neteacher.eclass.dto.KlassQueryParams;
 import kr.co.neteacher.eclass.entity.Klass;
-import kr.co.neteacher.eclass.entity.TeacherKlass;
-import kr.co.neteacher.eclass.entity.enums.Yn;
 import kr.co.neteacher.eclass.repository.KlassRepository;
-import kr.co.neteacher.eclass.repository.TeacherKlassRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -20,7 +16,6 @@ import java.util.Optional;
 public class KlassService {
 
     private final KlassRepository klassRepository;
-    private final TeacherKlassRepository teacherKlassRepository;
 
 
     /**
@@ -34,11 +29,11 @@ public class KlassService {
             // 신규 저장
             klassRepository.save(klass);
             // 교사-학급 관계저장
-            TeacherKlass teacherKlass = new TeacherKlass()
-                    .setKlassId(klass.getId())
-                    .setTeacherId(teacherId)
-                    .setDeleteYn(Yn.N);
-            teacherKlassRepository.save(teacherKlass);
+//            TeacherKlass teacherKlass = new TeacherKlass()
+//                    .setKlassId(klass.getId())
+//                    .setTeacherId(teacherId)
+//                    .setDeleteYn(Yn.N);
+//            teacherKlassRepository.save(teacherKlass);
         } else {
             // 수정
             klassRepository.save(klass);
@@ -60,42 +55,42 @@ public class KlassService {
      * @param teacherId (교사아이디)
      * @return 교사학급 목록
      */
-    public List<TeacherKlass> getTeacherKlassList(Long teacherId) {
-        // 교사(teacherId)가 담당하는 학급 조회
-        List<TeacherKlass> list = teacherKlassRepository.findAllByTeacherIdAndDeleteYn(teacherId, Yn.N);
-        return list;
-    }
+//    public List<TeacherKlass> getTeacherKlassList(Long teacherId) {
+//        // 교사(teacherId)가 담당하는 학급 조회
+//        List<TeacherKlass> list = teacherKlassRepository.findAllByTeacherIdAndDeleteYn(teacherId, Yn.N);
+//        return list;
+//    }
 
     /**
      * 학급(klassId)에 속한 교사 목록 - 교사정보없음(교사아이디만 조회)
      * @param klassId (학급아이디)
      * @return 교사 목록
      */
-    public List<TeacherKlass> getKlassTeacherList(Long klassId) {
-        // 학급(klassId)에 속한 교사조회
-        List<TeacherKlass> list = teacherKlassRepository.findAllByKlassIdAndDeleteYn(klassId, Yn.N);
-        return list;
-    }
+//    public List<TeacherKlass> getKlassTeacherList(Long klassId) {
+//        // 학급(klassId)에 속한 교사조회
+//        List<TeacherKlass> list = teacherKlassRepository.findAllByKlassIdAndDeleteYn(klassId, Yn.N);
+//        return list;
+//    }
 
     /**
      * 학급 삭제(deleteYn 수정)
      * @param klassId (학급아이디)
      */
     public void updateDeleteYn(Long klassId) {
-        // 학급 정보조회
-        Optional<Klass> klass = klassRepository.findById(klassId);
-        // 교사-학급 관계조회
-        Optional<TeacherKlass> teacherklass = teacherKlassRepository.findById(klassId);
-        // 학급정보에 deleteYn 수정
-        klass.ifPresent(k -> {
-            k.setDeleteYn(Yn.Y);
-            klassRepository.save(k);
-        });
-        // 교사-학급정보에 deleteYn 수정
-        teacherklass.ifPresent(tk -> {
-            tk.setDeleteYn(Yn.Y);
-            teacherKlassRepository.save(tk);
-        });
+//        // 학급 정보조회
+//        Optional<Klass> klass = klassRepository.findById(klassId);
+//        // 교사-학급 관계조회
+//        Optional<TeacherKlass> teacherklass = teacherKlassRepository.findById(klassId);
+//        // 학급정보에 deleteYn 수정
+//        klass.ifPresent(k -> {
+//            k.setDeleteYn(Yn.Y);
+//            klassRepository.save(k);
+//        });
+//        // 교사-학급정보에 deleteYn 수정
+//        teacherklass.ifPresent(tk -> {
+//            tk.setDeleteYn(Yn.Y);
+//            teacherKlassRepository.save(tk);
+//        });
     }
 
 }

@@ -1,7 +1,7 @@
 package kr.co.neteacher.eclass.dto;
 
+import kr.co.neteacher.eclass.entity.Klass;
 import kr.co.neteacher.eclass.entity.Teacher;
-import kr.co.neteacher.eclass.entity.TeacherKlass;
 import kr.co.neteacher.eclass.entity.enums.GradeType;
 import kr.co.neteacher.eclass.entity.enums.TeacherType;
 import kr.co.neteacher.eclass.entity.enums.Yn;
@@ -10,7 +10,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import kr.co.neteacher.eclass.entity.Klass;
 
 import java.util.Date;
 import java.util.List;
@@ -43,7 +42,7 @@ public class KlassDTO {
     private Teacher teacher;           //교사정보
 
     // 객체 리스트 저장
-    private List<TeacherKlass> teacherKlasses; //교사학급목록
+//    private List<TeacherKlass> teacherKlasses; //교사학급목록
     private List<Teacher> teachers; //교사목록
 
     // 공통

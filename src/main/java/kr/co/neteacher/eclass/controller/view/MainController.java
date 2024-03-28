@@ -20,17 +20,18 @@ public class MainController {
 
         if (teacher != null) {
             model.addAttribute("teacher",teacher);
-            model.addAttribute("content", "views/klass/setting");
+            model.addAttribute("content", "views/eval/list");
             return "views/main";
         } else {
             return "redirect:/main";
         }
     }
 
+
     @GetMapping("/main")
     public String main(Model model) {
-        model.addAttribute("content", "views/klass/setting");
-        return "views/main";
+        model.addAttribute("content", "views/klass/setting"); // main1.html을 렌더링하기 위한 content 변수 추가
+        return "views/main"; // layout.html을 반환
     }
 
     @GetMapping("/menu1")
@@ -41,13 +42,19 @@ public class MainController {
 
     @GetMapping("/menu2")
     public String menu2(Model model) {
-        model.addAttribute("content", "views/deploy/main2"); // main2.html을 렌더링하기 위한 content 변수 추가
+        model.addAttribute("content", "views/deploy/main1"); // main2.html을 렌더링하기 위한 content 변수 추가
         return "views/main"; // layout.html을 반환
     }
 
     @GetMapping("/menu3")
     public String menu3(Model model) {
-        model.addAttribute("content", "views/test/list"); // main3.html을 렌더링하기 위한 content 변수 추가
+        model.addAttribute("content", "views/deploy/main2"); // main3.html을 렌더링하기 위한 content 변수 추가
+        return "views/main"; // layout.html을 반환
+    }
+
+    @GetMapping("/manage")
+    public String manage(Model model) {
+        model.addAttribute("content", "views/manage/menu_setting"); // main1.html을 렌더링하기 위한 content 변수 추가
         return "views/main"; // layout.html을 반환
     }
 }

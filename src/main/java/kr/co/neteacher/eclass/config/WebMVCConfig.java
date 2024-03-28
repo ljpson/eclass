@@ -1,14 +1,11 @@
 package kr.co.neteacher.eclass.config;
 
-import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Description;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver;
 import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
@@ -101,10 +98,10 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
 
     private ISpringTemplateEngine templateEngine(ITemplateResolver templateResolver) {
         SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.addDialect(new LayoutDialect());
+//        engine.addDialect(new LayoutDialect());
         engine.addDialect(new Java8TimeDialect());
         engine.setTemplateResolver(templateResolver);
-        engine.setTemplateEngineMessageSource(messageSource());
+//        engine.setTemplateEngineMessageSource(messageSource());
         return engine;
     }
 
@@ -135,13 +132,13 @@ public class WebMVCConfig implements WebMvcConfigurer, ApplicationContextAware {
         return filter;
     }
 
-    @Bean
-    @Description("Spring Message Resolver")
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
-        return messageSource;
-    }
+//    @Bean
+//    @Description("Spring Message Resolver")
+//    public ResourceBundleMessageSource messageSource() {
+//        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+//        messageSource.setBasename("messages");
+//        return messageSource;
+//    }
 
 //    @Override
 //    public void addViewControllers(ViewControllerRegistry registry) {

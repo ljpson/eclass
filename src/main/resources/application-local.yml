@@ -1,11 +1,11 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/eClassOld
-    driver-class-name: org.h2.Driver
-#    url: jdbc:sqlserver://localhost:51433;database=eclass;encrypt=false
-#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    url: jdbc:h2:tcp://localhost/~/eClassOld
+#    driver-class-name: org.h2.Driver
+    url: jdbc:sqlserver://localhost:51433;database=eclass;encrypt=false
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: learn
-    password: 1234
+    password: 1111
 
   devtools:
     livereload:
@@ -26,6 +26,10 @@ spring:
       max-request-size: 10MB
       max-file-size: 10MB
       location: #파일 저장 경로
+
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    cache: false
 
 logging.level:
   org.hibernate.SQL: debug

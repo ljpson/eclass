@@ -15,7 +15,7 @@ import java.util.List;
 
 import static kr.co.neteacher.eclass.entity.QKlass.klass;
 import static kr.co.neteacher.eclass.entity.QTeacher.teacher;
-import static kr.co.neteacher.eclass.entity.QTeacherKlass.teacherKlass;
+
 import static org.springframework.util.StringUtils.hasText;
 
 @Slf4j
@@ -44,26 +44,26 @@ public class KlassRepositoryImpl extends QuerydslRepositorySupport implements Kl
         return queryFactory
                 .select(Projections.fields(KlassDTO.class,
                         klass.id.as("klassId"),
-                        klass.gradeType,
+//                        klass.gradeType,
                         klass.klassName,
-                        klass.password,
+//                        klass.password,
                         klass.studentAmount,
                         klass.deleteYn,
                         klass.createBy,
                         klass.createDate,
-                        teacherKlass.teacherId,
-                        teacherKlass.teacherType,
-                        teacherKlass.submitYn,
+//                        teacherKlass.teacherId,
+//                        teacherKlass.teacherType,
+//                        teacherKlass.submitYn,
                         teacher.neId,
                         teacher.teacherName))
                 .from(klass)
-                .join(teacherKlass)
-                .on(teacherKlass.klassId.eq(klass.id))
-                .join(teacher)
-                .on(teacher.id.eq(teacherKlass.teacherId))
+//                .join(teacherKlass)
+//                .on(teacherKlass.klassId.eq(klass.id))
+//                .join(teacher)
+//                .on(teacher.id.eq(teacherKlass.teacherId))
                 .where(klass.deleteYn.eq(Yn.N))
-                .where(teacherKlass.deleteYn.eq(Yn.N))
-                .where(teacherIdEq(queryParams.getTeacherId()))
+//                .where(teacherKlass.deleteYn.eq(Yn.N))
+//                .where(teacherIdEq(queryParams.getTeacherId()))
                 .where(klassNameEq(queryParams.getKlassName()))
                 .orderBy(klass.createDate.desc())
                 .fetch();
@@ -73,9 +73,9 @@ public class KlassRepositoryImpl extends QuerydslRepositorySupport implements Kl
      * 검색조건
      */
     // 교사 아이디
-    private BooleanExpression teacherIdEq(Long teacherId) {
-        return hasText(String.valueOf(teacherId)) ? teacherKlass.teacherId.eq(teacherId) : null;
-    }
+//    private BooleanExpression teacherIdEq(Long teacherId) {
+//        return hasText(String.valueOf(teacherId)) ? teacherKlass.teacherId.eq(teacherId) : null;
+//    }
     // 학급명
     private BooleanExpression klassNameEq(String klassName) {
         return hasText(klassName) ? klass.klassName.contains(klassName) : null;

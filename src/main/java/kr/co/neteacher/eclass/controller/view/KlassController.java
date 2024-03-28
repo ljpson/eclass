@@ -21,7 +21,7 @@ public class KlassController {
             session = request.getSession();
         }
         model.addAttribute("teacher", session.getAttribute("teacher"));
-        return "views/klass/list";
+        model.addAttribute("content", "views/klass/list");
+        return "views/main";
     }
-
 }

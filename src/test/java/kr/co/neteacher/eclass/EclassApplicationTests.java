@@ -1,7 +1,6 @@
 package kr.co.neteacher.eclass;
 
 import kr.co.neteacher.eclass.entity.Teacher;
-import kr.co.neteacher.eclass.entity.TeacherKlass;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -91,13 +90,13 @@ class EclassApplicationTests {
 //		em.persist(classTeacher);
 	}
 	// 교사-학급 관계테이블
-	@Test
-	void TeacherClassFind() {
-		Long teacherClassId = 1L;
-		// 학급 객체를 조회합니다.
-		TeacherKlass teacherKlass = em.find(TeacherKlass.class, teacherClassId);
-		System.out.println("teacherKlass:"+ teacherKlass);
-	}
+//	@Test
+//	void TeacherClassFind() {
+//		Long teacherClassId = 1L;
+//		// 학급 객체를 조회합니다.
+//		TeacherKlass teacherKlass = em.find(TeacherKlass.class, teacherClassId);
+//		System.out.println("teacherKlass:"+ teacherKlass);
+//	}
 	@Test
 	void TeacherFind() {
 		Long teacherId = 1L;

@@ -1,18 +1,13 @@
 package kr.co.neteacher.eclass.controller.rest;
 
 import kr.co.neteacher.eclass.common.Const;
-import kr.co.neteacher.eclass.dto.KlassDTO;
-import kr.co.neteacher.eclass.dto.KlassQueryParams;
 import kr.co.neteacher.eclass.entity.Klass;
-import kr.co.neteacher.eclass.entity.TeacherKlass;
 import kr.co.neteacher.eclass.service.KlassService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
-
-import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -44,54 +39,54 @@ public class KlassRestController extends DefaultRestController  {
      * @param queryParams (teacherId, klassName)
      * @return 검색조건에 맞는 학급 목록
      */
-    @GetMapping("/klass/{teacherId}")
-    public DeferredResult<ResponseEntity<?>> getKlassList(@PathVariable Long teacherId,
-                                                          KlassQueryParams queryParams) {
-        try {
-            // 개설한 학급이 있는지 조회
-            List<TeacherKlass> teacherKlassList = klassService.getTeacherKlassList(teacherId);
-            if (teacherKlassList.isEmpty()) {
-                //개설한 학급이 없으면 학급개설 알림 메시지
-                return failResponse(Const.MSG_010);
-            } else {
-                // 개설학급이 있으면 목록 조회
-                List<KlassDTO> list = klassService.getKlassList(queryParams);
-                return successResponse(list);
-            }
-        } catch (Exception e) {
-            return failResponse(e);
-        }
-    }
+//    @GetMapping("/klass/{teacherId}")
+//    public DeferredResult<ResponseEntity<?>> getKlassList(@PathVariable Long teacherId,
+//                                                          KlassQueryParams queryParams) {
+//        try {
+//            // 개설한 학급이 있는지 조회
+//            List<TeacherKlass> teacherKlassList = klassService.getTeacherKlassList(teacherId);
+//            if (teacherKlassList.isEmpty()) {
+//                //개설한 학급이 없으면 학급개설 알림 메시지
+//                return failResponse(Const.MSG_010);
+//            } else {
+//                // 개설학급이 있으면 목록 조회
+//                List<KlassDTO> list = klassService.getKlassList(queryParams);
+//                return successResponse(list);
+//            }
+//        } catch (Exception e) {
+//            return failResponse(e);
+//        }
+//    }
 
     /**
      * 학급 목록 조회 (학급아이디만 조회 - 학급정보 없음)
      * @param teacherId (교사아이디)
      * @return 교사가 담당하는 학급 목록
      */
-    @GetMapping("/teacher/klass/{teacherId}")
-    public DeferredResult<ResponseEntity<?>> getTeacherKlassList(@PathVariable Long teacherId) {
-        try {
-            List<TeacherKlass> list = klassService.getTeacherKlassList(teacherId);
-            return successResponse(list);
-        } catch (Exception e) {
-            return failResponse(e);
-        }
-    }
+//    @GetMapping("/teacher/klass/{teacherId}")
+//    public DeferredResult<ResponseEntity<?>> getTeacherKlassList(@PathVariable Long teacherId) {
+//        try {
+//            List<TeacherKlass> list = klassService.getTeacherKlassList(teacherId);
+//            return successResponse(list);
+//        } catch (Exception e) {
+//            return failResponse(e);
+//        }
+//    }
 
     /**
      * 교사 목록 조회 (교사아이디만 조회 - 교사정보 없음)
      * @param klassId (학급아이디)
      * @return 학급을 담당하는 교사 목록
      */
-    @GetMapping("/teacher/{klassId}")
-    public DeferredResult<ResponseEntity<?>> getKlassTeacherList(@PathVariable Long klassId) {
-        try {
-            List<TeacherKlass> list = klassService.getKlassTeacherList(klassId);
-            return successResponse(list);
-        } catch (Exception e) {
-            return failResponse(e);
-        }
-    }
+//    @GetMapping("/teacher/{klassId}")
+//    public DeferredResult<ResponseEntity<?>> getKlassTeacherList(@PathVariable Long klassId) {
+//        try {
+//            List<TeacherKlass> list = klassService.getKlassTeacherList(klassId);
+//            return successResponse(list);
+//        } catch (Exception e) {
+//            return failResponse(e);
+//        }
+//    }
 
     /**
      * 학급 정보 삭제(업데이트)
